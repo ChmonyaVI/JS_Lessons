@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 7</title>
+</head>
+
+<body>
+    <h1>Task 7</h1>
+
+    <p>
+        Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту (авто, автобус,
+        літак -
+        випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х гідів(використати - radio
+        buttons).
+        Ціни визначте самі. Підрахувати загальну вартість.
+    </p>
+    <br>
+    <select id="selectTransport">
+        <option value="500">Auto</option>
+        <option value="300">Coach</option>
+        <option value="800">Airplane</option>
+    </select>
+    <br>
+    <br>
+    <label id="foodOption" for="">
+        Breakfast
+        <input type="checkbox" name="" value="100">
+        Lunch
+        <input type="checkbox" name="" value="150">
+        Dinner
+        <input type="checkbox" name="" value="200">
+    </label>
+    <br>
+    <label id="labelGuide" for="1">
+        Guide Alex
+        <input type="radio" name="1" value="130">
+        Guide Jessica
+        <input type="radio" name="1" value="150">
+        Guide Anna
+        <input type="radio" name="1" value="100">
+    </label>
+    <div>
+        <button type="submit" id="button" class="button">Get Sum</button>
+    </div>
+    <div>Загальна вартість : <span id="result"></span></div>
+    <script>
+        function getTotalPrice() {
+            totalSum = 0
+            const transportPrice = parseFloat(
+                document.getElementById('selectTransport').value
+            )
+            totalSum += transportPrice
+            const inputsValue = document.getElementsByTagName('input')
+            for (const input of inputsValue) {
+                if (input.checked) totalSum += parseFloat(input.value)
+            }
+            document.getElementById('result').innerText = totalSum
+        }
+        window.onload = function () {
+            document.getElementsByTagName('button')[0].onclick = getTotalPrice
+        }
+    </script>
+
+</body>
+
+</html>

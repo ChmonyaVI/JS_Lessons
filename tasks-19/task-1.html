@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+    <style>
+        body {}
+
+        .cards {
+            display: flex;
+            gap: 10px;
+        }
+
+        .block-card {
+            display: flex;
+            flex-direction: column;
+            width: 224px;
+            justify-content: space-between;
+            padding: 15px;
+            border: 5px solid white;
+            transition: border 0.3s ease 0s;
+        }
+
+        .block-card:hover {
+            transition: border 0.3s ease 0s;
+            border: 5px solid green;
+        }
+
+        .label {
+            width: 80px;
+            background-color: rgb(255, 169, 0);
+            color: rgb(255, 255, 255);
+            display: inline;
+            height: 24px;
+            padding-left: 8px;
+            padding-right: 8px;
+            font-size: 12px;
+            line-height: 24px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .label:nth-child(3) {
+            background-color: red;
+        }
+
+        .img-laptope {
+            margin-bottom: 30px;
+
+        }
+
+        .title-laptope {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .title-laptope a {
+            display: block;
+            font-size: 14px;
+            overflow: hidden;
+            line-height: 16px;
+            color: #221f1f;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .title-price {
+            font-size: 24px;
+            color: red;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <p>
+        Відображаємо картки товарів, які користувач може вибирати. Вибраний товар має зелену рамку
+    </p>
+
+    <br>
+    <div class="cards"></div>
+    <script>
+        class LinkCard {
+            constructor({ label, img, title, price, link }) {
+                this.label = label
+                this.img = img
+                this.title = title
+                this.price = price
+                this.link = link
+            }
+            render(containerSelector) {
+                //Контейнер для карточек товаров
+                const cardContainer = document.createElement('div')
+                cardContainer.className = 'container-card'
+
+                //Контейнер для карточки (одной)
+                const blockCardContainer = document.createElement('div')
+                blockCardContainer.className = 'block-card'
+
+                //Создаем Label
+                const labelCard = document.createElement('div')
+                labelCard.className = 'label'
+                labelCard.innerText = this.label
+                blockCardContainer.append(labelCard)
+                cardContainer.append(blockCardContainer)
+
+                //Создаем картинку ноутбука
+                const imgLaptope = document.createElement('img')
+                imgLaptope.className = 'img-laptope'
+                imgLaptope.src = this.img
+                blockCardContainer.append(imgLaptope)
+                cardContainer.append(blockCardContainer)
+
+                //Создаем название ноутбука
+                const TitleLaptope = document.createElement('div')
+                TitleLaptope.className = 'title-laptope'
+                const link = document.createElement('a')
+                link.href = this.link
+                link.innerText = this.title
+                TitleLaptope.append(link)
+                blockCardContainer.append(TitleLaptope)
+                cardContainer.append(blockCardContainer)
+
+                //Создаем цену ноутбука
+                const titlePrice = document.createElement('div')
+                titlePrice.className = 'title-price'
+                titlePrice.innerText = this.price
+                blockCardContainer.append(titlePrice)
+                cardContainer.append(blockCardContainer)
+
+
+                //Создаем сам контейнер
+                const targetContainer = document.querySelector(containerSelector)
+                targetContainer.append(cardContainer)
+            }
+        }
+        //создаем карточки
+        const linksSet = [
+            {
+                label: 'Топ продаж',
+                img: './task1/1.png',
+                title: 'Ноутбук Acer Aspire 7',
+                price: '30 999₴',
+                link: 'https://rozetka.com.ua/ua/acer_nh_qbfeu_00c/p288376303/',
+            },
+            {
+                label: 'Топ продаж',
+                img: './task1/2.png',
+                title: 'Ноутбук Lenovo IdeaPad L3 ',
+                price: '16 999₴',
+                link: 'https://rozetka.com.ua/ua/lenovo-82hl00hcra/p352335126/',
+            },
+            {
+                label: 'Акция',
+                img: './task1/3.png',
+                title: 'Ноутбук ASUS TUF Gaming',
+                price: '29 999₴',
+                link: 'https://rozetka.com.ua/ua/asus-90nr03u2-m008e0/p353689830/',
+            },
+            {
+                label: 'Топ продаж',
+                img: './task1/4.png',
+                title: 'Ноутбук ASUS Laptop',
+                price: '19 999₴',
+                link: 'https://rozetka.com.ua/ua/asus-90nb0ty1-m00vf0/p346597995/',
+            },
+        ]
+        window.onload = function () {
+            for (const LinkData of linksSet) {
+                new LinkCard(LinkData).render('.cards')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 5</title>
+    <style>
+        body {
+            background-color: rgb(208, 205, 205);
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .tank {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+        }
+
+        .text {
+            position: relative;
+            color: #000;
+            z-index: 10;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+    <br>
+    <div class="container">
+        <div class="text">Танків знищено: <span class="counter">0</span></div>
+    </div>
+    <script>
+        //Байрактар.З верхньої частини екрану у випадковій позиції по горизонталі з’являються танки,які їдуть вниз.При кліку на танк він вибухає і зникає з екрану
+        class TankGame {
+
+            constructor(img, interval) {
+                this.img = img
+                this.interval = interval
+                this.counter = 0
+            }
+            getRandomPosition() {
+                return Math.floor(Math.random() * 97)
+            }
+
+            shootOnTank(tank, init) {
+                tank.style.opacity = '1'
+                clearInterval(init)
+                setTimeout(() => {
+                    tank.remove()
+                    document.querySelector('.counter').innerHTML = this.counter++
+                }, 900)
+            }
+            render(containerSelector) {
+                setInterval(() => {
+                    const tank = document.createElement('img')
+                    tank.className = 'tank'
+                    tank.src = this.img
+                    tank.style.left = this.getRandomPosition() + '%'
+                    tank.style.top = '-8%'
+                    tank.style.transform = 'rotate(180deg)'
+                    tank.style.transition = 'opacity 0.3s ease 0s'
+                    document.querySelector(containerSelector).append(tank)
+                    let init = setInterval(() => {
+                        tank.style.top = parseFloat(tank.style.top) + 2.5 + '%'
+                        if (parseFloat(tank.style.top) > 100) {
+                            tank.remove()
+                        }
+                    }, 200);
+                    tank.onclick = this.shootOnTank.bind(this, tank, init)
+                }, this.interval * 1000);
+            }
+        }
+        window.onload = function () {
+            const UAV = new TankGame('./task5/tank.png', 1.5)
+            UAV.render('.container')
+        }
+
+
+    </script>
+
+</body>
+
+</html>

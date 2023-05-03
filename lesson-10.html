@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <br>
+    <p>
+        При розв’язанні задач намагайтесь використовувати відповідні методи (map, filter, reduce,…) всюди, де це можливо
+    </p>
+    <br>
+    <p>
+        Задача. Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let questionForUser = parseInt(prompt('Введите количество акций:', '5'))
+        function getRandomNumb(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let newArrWithRandomPrice = new Array(questionForUser).fill(0).map(that => getRandomNumb(1, 10000))
+        console.log(newArrWithRandomPrice);
+        //2.Знаходимо результат
+        //1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+        let getFirstMassive = newArrWithRandomPrice.filter(that => that > 1000)
+        document.write(`<br>1) Массив, в котором цена бумаг больше 1000: ${getFirstMassive.join(', ')} `)
+
+        //2)Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+        let getSecondMassive = newArrWithRandomPrice.reduce((index, item, arr) => {
+            if (item > 1000) {
+                return [...index, arr]
+            }
+            return index
+        }, [])
+        document.write(`<br>2) Массив, в котором номера бумаг больше 1000: ${getSecondMassive.join(', ')}`)
+
+        //3)Сформувати список з тих цін, які більші за попереднє значення
+        let getThirdMassive = newArrWithRandomPrice.reduce((accumulator, item, index, arr) => {
+            if (item > arr[index - 1]) {
+                return [...accumulator, item]
+            }
+            return accumulator
+        }, []
+        )
+        console.log(getThirdMassive);
+
+        document.write(`<br>3) Список цен, больших за предыдущее значение: ${getThirdMassive.join(', ')}`)
+        //4)Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+        let newArrayMax = newArrWithRandomPrice.reduce((maxValue, item) => (maxValue > item ? maxValue : item))
+        let arrayProcent = newArrWithRandomPrice.map(that => Math.round((that - 100) / newArrayMax))
+        console.log(arrayProcent);
+
+        //5)Підрахувати кількість змін цін
+        let arrayFiveMassive = newArrWithRandomPrice.reduce((prevValue, element, index, arr) => {
+            if (index > 0 && element !== arr[index - 1])
+                return prevValue + 1
+            return prevValue
+        }, 0)
+        document.write(`<br>5) Количество изменений цен: ${arrayFiveMassive}<br>`)
+
+        //6)Визначити, чи є ціна, що менше 1000
+        let arrSixMasive = newArrWithRandomPrice.some(item => item < 1000);
+        //     if (element < 1000)
+        //         prevValue += 1;
+        //     else prevValue
+        //     return prevValue
+        // }, 0)
+        if (arrSixMasive == true)
+            document.write(`6) В масси есть числа меньшие за 1000.<br>`)
+        else document.write(`6) В масси нет чисел меньшие за 1000.<br>`)
+
+
+        //7 Визначати, чи усі ціни більше за 1000
+        let getSevenMassive = newArrWithRandomPrice.every(item => item > 1000)
+        if (getSevenMassive == true) {
+            document.write(`7)В массиве присутствуют бумаги меньше чем 1000.<br>`)
+        }
+        else document.write(`7)В массиве нет бумаги меньше чем 1000.<br>`)
+        //else document.write('<br>7)В массиве нет бумаг меньше чем 1000.');
+
+        //8)Підрахувати кількість цін, що більше за 1000
+        let getEightMassive = newArrWithRandomPrice.reduce((prevValue, element, arr) => {
+            if (element > 1000)
+                prevValue += 1;
+            return prevValue
+        }, 0)
+        document.write(`8)Количество бумаг больше 1000 составляет: ${getEightMassive} шт.<br>`)
+
+        //9)Підрахувати суму цін, що більше за 1000
+        let getNineMassive = newArrWithRandomPrice.reduce((prevValue, element, arr) => {
+            if (element > 1000)
+                prevValue += element
+            else prevValue
+            return prevValue
+        }, 0)
+        document.write(`9)Общая сумма бумаг больше 1000 составляет: ${getNineMassive}<br>`)
+
+        //10)Знайти першу ціну, що більше за 1000
+        let getTenMassive = newArrWithRandomPrice.find(element => element > 1000)
+        document.write(`10)Первый цена больше 1000 равняется: ${getTenMassive}<br>`)
+
+        //11)Знайти індекс першої ціни, що більше за 1000
+        let getElevenMassive = newArrWithRandomPrice.findIndex(element => element > 1000)
+        document.write(`11)Первый индекс цены больше 1000 равняется: ${getElevenMassive}<br>`)
+
+        //12)Знайти останню ціну, що більше за 1000
+        let getTwelweMassive = newArrWithRandomPrice.reduce((prevValue, element) =>
+            element > 1000 ? element : prevValue
+        )
+        document.write(`12)Последний элемент цены больше 1000 равняется: ${getTwelweMassive}<br>`)
+
+        //13)Знайти індекс останньої ціни, що більше за 1000
+        let getThirteenMassive = newArrWithRandomPrice.reduce((prevValue, element, index) =>
+            element > 1000 ? index : prevValue
+            , 0)
+        document.write(`13)Последний индекс цены больше 1000 равняется: ${getThirteenMassive}<br>`)
+    </script>
+</body>
+
+</html>

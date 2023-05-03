@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 4. З клавіатури вводиться вік дитини. Вивести на екран через скільки років
+        вона буде відвідувати садочок, піде у школу, закінчить школу, вступить і
+        закінчить</h1>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let year = parseInt(prompt('Веддите возраст ребенка (до 2х лет) ', '0'));
+        Kinder = 3;
+        shkolnik = 7;
+        konets_shkoli = 17;
+        start_univer = 18;
+        konets_univer = 22;
+
+        //2.Знаходимо результат
+        const kindegarten = Kinder - year;
+        const school = shkolnik - year;
+        const endSchool = konets_shkoli - year;
+        const startUniv = start_univer - year;
+        const endUniver = konets_univer - year;
+        //3.Виводимо результа
+        document.write(`
+        Начальное значение: ${year} <br>
+        Пойдет в детсад: ${kindegarten} <br>
+        Пойдет в школу: ${school} <br> 
+        Окончит школу${endSchool} <br> 
+        Пойдет в Универ${startUniv} <br> 
+        Закончит универ${endUniver} <br>  `)
+    </script>
+</body>
+
+</html>

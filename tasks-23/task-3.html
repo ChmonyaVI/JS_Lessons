@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Task 3</title>
+    <style></style>
+  </head>
+
+  <body>
+    <h1>Task 3</h1>
+
+    <p>Сформувати масив з 1000 елементів від 1 до 800. Порівняти час сортування бульбашкою і вставкою.</p>
+
+    <br />
+
+    <script>
+      function getRandomNum(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function arrayGeneration(itemsCount) {
+        let arr = [];
+        for (let i = 0; i < itemsCount; i++) {
+          let randomNum = getRandomNum(1, 800);
+          arr.push(randomNum);
+        }
+        return arr;
+      }
+      let test1 = arrayGeneration(8000);
+      let test2 = arrayGeneration(8000);
+
+      const startDate1 = new Date().getTime();
+      //Сортировка бульбашкой
+
+      for (let j = test1.length; j > 0; j--) {
+        for (let i = 0; i < j; i++) {
+          if (test1[i] > test1[i + 1]) {
+            let temp = test1[i];
+            test1[i] = test1[i + 1];
+            test1[i + 1] = temp;
+          }
+        }
+      }
+
+      const endDate1 = new Date().getTime();
+      const timeSortBuble = endDate1 - startDate1;
+      console.log(timeSortBuble);
+
+      //========================================================================================================================================================
+
+      let startDate2 = new Date().getTime();
+      //сортировка вставками
+      for (let i = 0, l = test2.length; i < l; i++) {
+        const currentArr = test2[i];
+        let j = i;
+        while (j > 0 && test2[j - 1] > currentArr) {
+          test2[j] = test2[j - 1];
+          j--;
+        }
+        test2[j] = currentArr;
+      }
+      const endDate2 = new Date().getTime();
+      const timeSortInsert = endDate2 - startDate2;
+      console.log(timeSortInsert);
+      document.write(`Метод бульбашками составляет ${timeSortBuble} миллисекунд.<br>Метод вставкой составляет ${timeSortInsert} миллисекунд.<br>`);
+    </script>
+  </body>
+</html>

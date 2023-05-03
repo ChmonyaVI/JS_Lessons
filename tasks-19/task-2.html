@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .list-body {
+            border: 1px solid black;
+            width: 250px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .total-list-body {}
+
+        .sportsman {
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .arrow {
+            max-width: 30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>
+        Задача 2. Дано список спортсменів. Потрібно сформувати список тих, які будуть брати участь у змаганні.
+        При
+        цьому є два стовпці. В одному відображені всі спортсмени, в іншому – список тих, хто був вибраний. При
+        натисканні на зелену стрілку спортсмен переміщається у список для змагань. При натисканні на червону
+        стрілку
+        спортсмен переміщається у загальний список.
+
+        <br>
+    <div class="container"></div>
+    <script>
+        class SportsManager {
+            constructor(sportsList) {
+                this.sportsList = sportsList
+            }
+
+            addSportsman() {
+                for (const el of this.sportsList) {
+                    const sportsman = document.createElement('div')
+                    sportsman.className = 'sportsman'
+                    this.totalListBody.append(sportsman)
+                    const sportsmanName = document.createElement('div')
+                    sportsmanName.innerHTML = el
+                    sportsman.append(sportsmanName)
+                    const img = document.createElement('img')
+                    img.className = 'arrow'
+                    img.src = this.greenArrowSrc
+                    sportsman.append(img)
+                }
+            }
+
+            manageSportsmanList(sportsman, arrow) {
+                if (!sportsman.classList.contains('active')) {
+                    sportsman.classList.add('active')
+                    sportsman.remove()
+                    this.competitionListBody.append(sportsman)
+                    arrow.src = this.redArrowSrc
+                } else {
+                    sportsman.classList.remove('active')
+                    sportsman.remove()
+                    this.totalListBody.append(sportsman)
+                    arrow.src = this.greenArrowSrc
+                }
+            }
+
+            render(containerSelector) {
+                this.greenArrowSrc = './task2/1.jpg'
+                this.redArrowSrc = './task2/2.png'
+
+                //общий список
+
+                const totalList = document.createElement('div')
+                totalList.className = 'total-list'
+
+                const totalListTitle = document.createElement('h2')
+                totalListTitle.innerHTML = 'Загальний список'
+                totalList.append(totalListTitle)
+
+                this.totalListBody = document.createElement('div')
+                this.totalListBody.classList.add('total-list-body', 'list-body')
+                totalList.append(this.totalListBody)
+                this.addSportsman()
+
+                //Таблица выбранных игроков
+
+                const chooseList = document.createElement('div')
+                chooseList.className = 'choose-list'
+
+                const competitionListTitle = document.createElement('h2')
+                competitionListTitle.innerHTML = 'Обрані для змагання'
+                chooseList.append(competitionListTitle)
+
+                this.competitionListBody = document.createElement('div')
+                this.competitionListBody.classList.add(
+                    'choose-list-body',
+                    'list-body'
+                )
+                chooseList.append(this.competitionListBody)
+
+                //Добавляю списки
+
+                const targetEl = document.querySelector(containerSelector)
+                targetEl.append(totalList)
+                targetEl.append(chooseList)
+
+                //Накидываю событие на каждый элемент
+
+                const arrowsList = document.querySelectorAll('.arrow')
+                const sportsmanList = document.querySelectorAll('.sportsman')
+                console.log(arrowsList)
+
+                for (let i = 0; i < this.sportsList.length; i++) {
+                    sportsmanList[i].onclick = this.manageSportsmanList.bind(
+                        this,
+                        sportsmanList[i],
+                        arrowsList[i]
+                    )
+                }
+            }
+        }
+
+        sportsList = [
+            'John Reese',
+            'Sara Wik',
+            'Den Marino',
+            'Alan Walker',
+            'Olga Sich',
+            'Ivan Hal',
+        ]
+
+        window.onload = function () {
+            const manager = new SportsManager(sportsList)
+            manager.render('.container')
+        }
+
+    </script>
+
+</body>
+
+</html>

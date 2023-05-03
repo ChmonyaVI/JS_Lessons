@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+  </head>
+  <body>
+    <h1>Task 2</h1>
+    <p>Задача. Розробити Класи</p>
+    <img src="./taks1/taks2.png" alt="" />
+    <br />
+    <div id="cnt" class="cnt"></div>
+    <script>
+      class Info {
+        constructor(x, y, imgSrc, updateInterval, tag) {
+          this.x = x;
+          this.y = y;
+          this.imgSrc = imgSrc;
+          this.updateInterval = updateInterval;
+          this.element = this.createHTMLElement(tag);
+        }
+        createHTMLElement(tag) {
+          const element = document.create(element);
+          element.style.position = "relative";
+          const image = document.createElement("img");
+          img.src = this.imgSrc;
+          img.style.position = "absolute";
+          img.left = `${this.x}px`;
+          img.top = `${this.y}px`;
+          return element;
+        }
+      }
+
+      class House extends Info {
+        constructor(x, y, imgSrc, updateInterval, tag) {
+          super(x, y, imgSrc, updateInterval, tag);
+        }
+        update(step) {
+          this.step = 1;
+          setInterval(() => {
+            const update = Math.round(Math.random());
+            if (update) {
+              this.element.style.transform = `scale(${(this.step += step)})`;
+            }
+            this.element.style.transform = `scale(${(this.step -= step)})`;
+          }, this.updateInterval * 500);
+        }
+      }
+
+      class Dog extends Info {
+        constructor(x, y, imgSrc, updateInterval, tag) {
+          super(x, y, imgSrc, updateInterval, tag);
+        }
+        stepCoordX(step) {
+          setInterval(() => {
+            const update = Math.round(Math.random());
+            if (update) {
+              this.x += step;
+            } else {
+              this.x -= step;
+              console.log(this.x);
+            }
+          }, this.updateInterval * 500);
+        }
+      }
+      class Bird extends Info {
+        constructor(x, y, imgSrc, updateInterval, tag) {
+          super(x, y, imgSrc, updateInterval, tag);
+        }
+        newPosition(step) {
+          setInterval(() => {
+            const updateX = Math.round(Math.random());
+            updateX ? (this.x += step) : (this.x -= step);
+            const updateY = Math.round(Math.random());
+            updateY ? (this.y += step) : (this.y -= step);
+          }, this.updateInterval * 500);
+        }
+      }
+      //Брал картинку с заданием
+      // const test1 = new ItemInfo(30, 10, '', 1000, 'div')
+      // console.log(a1)
+
+      // const test2 = new House(320, 240, 'HouseImage', 2, 'a')
+      // a2.update(0.2)
+      // console.log(a2)
+    </script>
+  </body>
+</html>

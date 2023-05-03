@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Task 1</title>
+    <style>
+      body {
+      }
+      .cnt {
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Task 1</h1>
+
+    <p>
+      Дано 10 рядків тексту «Hello!» у окремих div. При кліку на якийсь із них
+      усі наступні повинні бути зафарбовані у червоний колір.
+    </p>
+
+    <br />
+    <div class="cnt">
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+      <div>Hello!</div>
+    </div>
+    <script>
+      const cnt = document.querySelector(".cnt");
+      cnt.addEventListener("click", (e) => {
+        let div = e.target;
+        if (div.closest(".cnt")) {
+          div.style.colot = "red";
+          while (div.previousElementSibling) {
+            div = div.previousElementSibling;
+            div.style.color = "yellow";
+            div.style.backgroundColor = "blue";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

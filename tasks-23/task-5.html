@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Tasks</title>
+    <style></style>
+  </head>
+
+  <body>
+    <h1>Tasks</h1>
+
+    <p>String (Задачи)</p>
+
+    <br />
+
+    <script>
+      let stringArray = ["Hello", "21", "Hi", "twenty!", "15", "Delete.", "name?", "2", "13", "three13"];
+      //Задача 1 Дано масив рядків. Вивести ті, у яких є цифри (використати метод test та регулярні вирази).
+      document.write("Задача 1) ");
+      function taskOne(arr) {
+        let test = arr.join(" ,");
+        let exp = /[123456789]*/gi;
+        let result = test.match(exp);
+        result.forEach(function (value, index, array) {
+          document.write(value + " ");
+        });
+      }
+      let taskFirst = taskOne(stringArray);
+      document.write(`</br>`);
+      document.write(`</br> Задача 2) `);
+      //Задача 2 Дано масив рядків. Вивести ті, у яких немає цифр.
+      function taskTwo(arr) {
+        let test = arr.join(" ,");
+        let exp = /[a-z]*/gi;
+        let result = test.match(exp);
+        result.forEach(function (value, index, array) {
+          document.write(value + " ");
+        });
+      }
+      let taskSecond = taskTwo(stringArray);
+      document.write(`</br>`);
+      document.write(`</br> Задача 3)`);
+      //Задача 3 Дано масив рядків. Вивести ті, у яких є голосні літери.
+      function taskThird(arr) {
+        let string = arr.join("");
+        if (/[aeiouy]/gi.test(string)) {
+          let list = string.match(/[aeiouy]/gi);
+          document.write(list.join(", "));
+        }
+      }
+      let task3 = taskThird(stringArray);
+      document.write(`</br>`);
+      document.write(`</br>Задача 4) `);
+      //Задача 4 Дано масив рядків. Вивести ті, у яких немає голосних літер.
+      function taskFour(arr) {
+        let string = arr.join("");
+        if (/[^aeiouy]/gi.test(string)) {
+          let list = string.match(/[^aeiouy]/gi);
+          document.write(list.join(", "));
+        }
+      }
+      let task4 = taskFour(stringArray);
+      document.write(`</br>`);
+      document.write(`</br>Задача 5) `);
+      //Задача 5 Дано масив рядків. Вивести ті, у яких є або цифра 1 або цифра 3.
+      function taskFive(arr) {
+        let string = arr.join("");
+
+        if (/[1-3]/gi.test(string)) {
+          let list = string.match(/[1-3]*/gi);
+          document.write(list.join(" "));
+        }
+      }
+      let task5 = taskFive(stringArray);
+      document.write(`</br>`);
+      document.write(`</br>Задача 6) `);
+      //Задача 6. Дано рядок тексту, вивести усі числа, які є у тексті.
+      let stringForTaks = "Is this string24, contains numbers5! In this spring, i have 3 hours of free time. Date: 14.06.2023";
+      function taskSix(val) {
+        let exp = /[123456789]*/gi;
+        let result = val.match(exp);
+        result.forEach(function (value, index, array) {
+          document.write(value + " ");
+        });
+      }
+      let task6 = taskSix(stringForTaks);
+      document.write(`</br>`);
+      document.write(`</br>Задача 7) `);
+      //Задача 7. Дано рядок тексту. Знайти усі знаки пунктуації, які були використано.
+      function taskSeven(val) {
+        let exp = /\W*/gi;
+        let result = val.match(exp);
+        result.forEach(function (value, index, array) {
+          document.write(value + " ");
+        });
+      }
+      let task7 = taskSeven(stringForTaks);
+      document.write(`</br>`);
+      document.write(`</br>Задача 8) `);
+      //Задача 8. Дано рядок тексту. Вивести усі складові, які розділені розділовими знаками.
+      function taskEight(val) {
+        let exp = /[,]*/gi;
+        let result = val.match(exp);
+        result.forEach(function (value, index, array) {
+          document.write(value + " ");
+        });
+      }
+      let task8 = taskEight(stringForTaks);
+      document.write(`</br>`);
+      document.write(`</br>Задача 9) `);
+      //Задача 9. Дано рядок тексту. Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd- день, mm- місяць, yyyy- рік).
+      function taskNine(val) {
+        let exp = /\d{1,2}\.\d{1,2}\.\d{4}/g;
+        let result = val.match(exp);
+        result.forEach(function (value, index, array) {
+          document.write(value + " ");
+        });
+      }
+      let task9 = taskNine(stringForTaks);
+      document.write(`</br>`);
+      document.write(`</br>Задача 10) `);
+      //Задача 10. Дано рядок тексту. Підрахувати кількість двоцифрових чисел у рядку.
+      function taskTen(val) {
+        let counter = 0;
+        let stringArray = val.split(" ");
+        let part1 = /\d{2}/gi;
+        let test = val.match(part1);
+        if (test) {
+          counter++;
+        }
+        return document.write(`Количество двойных чисел в тексте: ${counter}`);
+      }
+      let task10 = taskTen(stringForTaks);
+      document.write(`</br>`);
+      document.write(`</br>Задача 11) `);
+      //Задача 11. Визначити чи може бути рядок тексту номером банківської картки (приклад: «4142-3433-2323-3434»). Знайти усі такі номери.
+      const stringForTask11 = "Номера карта: 1111-5555-6666-8888, 5588,4758-6957-1236, 442-545-77777-45324, 4142-3433-2323-3434";
+      function taskEleven(val) {
+        let exp = /\d{4}\-\d{4}\-\d{4}/g;
+        let matchStr = val.match(exp);
+        return document.write(`Номер карт с 4я цифрами: ${matchStr}`);
+      }
+      let task11 = taskEleven(stringForTask11);
+      document.write(`</br>`);
+      document.write(`</br>Задача 12) `);
+      //Дано адресу сайту. Визначити, чи є він урядовим (містить домен “gov”)
+      const strFortTask12 = "whois.dotgov.gov";
+      function taskTwenty(val) {
+        if (val.endsWith("gov")) {
+          return document.write(`В строке есть гос сайты.`);
+        } else return document.write(`В строке нет гос сайты.`);
+      }
+      let task12 = taskTwenty(strFortTask12);
+      document.write(`</br>`);
+      document.write(`</br>Задача 13) `);
+      //Задача 13. Вибрати усі роки після 2021 року з отриманого повідомлення
+      const strFortTask13 =
+        "Back in late 2020 or early 2021 I started thinking about programming. At the end of 2022 I started learning HTML and CSS from youtube lessons. At the beginning of 2023 I decided to take a course on JS from Pan Andrei. In 2024 I plan to find a project where my knowledge will be useful.";
+      function task13(val) {
+        const exp = val.match(/\D\d{4}\D/g);
+        const res = exp.filter((element) => parseInt(element) > 2021);
+        return document.write(`${res}`);
+      }
+      let task = task13(strFortTask13);
+      document.write(`</br>`);
+      document.write(`</br>Задача 14) `);
+      //Задача 14. Дано номер телефону. Перевірити, чи є цей телефон телефоном з України (починаєтсья на «+38»)
+      const strFortTask14 = "+39054666523";
+      function taskfourteen(val) {
+        if (val.startsWith("+38")) {
+          return document.write(`Номер является украинским.`);
+        } else return document.write(`Номер не является украинским.`);
+      }
+      let task14 = taskfourteen(strFortTask14);
+      document.write(`</br>`);
+      document.write(`</br>Задача 15) `);
+      //Задача 15. Користувач вводить прізвище та ім’я в одному рядку через пробіл.  Замінити пробіл на дефіс.
+      const strFortTask15 = "Александр Генадьевич Арестович";
+      function taskFiveteen(val) {
+        let test = val.replaceAll(" ", "-");
+        return document.write(`${test}`);
+      }
+      let task15 = taskFiveteen(strFortTask15);
+      document.write(`</br>`);
+      document.write(`</br>Задача 16) `);
+      //Задача 16. Користувач вводить дату у форматі «день.місяць.рік». Отримати рядкове представлення дати у форматі «день/місяць/рік»
+      const strFortTask16 = "12.12.2015";
+      function taskSixTeen(val) {
+        let test = val.replaceAll(".", "/");
+        return document.write(`${test}`);
+      }
+      let task16 = taskSixTeen(strFortTask16);
+      document.write(`</br>`);
+      document.write(`</br>Задача 17) `);
+      //Задача 17. Користувач вводить день (номер дня (0-6) або «sun,mon,tue,wed,thu,fri,sat»). Визначити, чи  є це день вихідним
+      function taskElevenTeen() {
+        let question = prompt("Введите день недели.");
+        const numberHoliday = /[67]/gi.test(question);
+        const stringHolidaySun = question.match(/sun[day]*/gi);
+        const stringHolidaySat = question.match(/sat[urday]*/gi);
+        if (numberHoliday || stringHolidaySun || stringHolidaySat) {
+          return document.write("Это выходной");
+        } else return document.write("Это рабочий день");
+      }
+      let task17 = taskElevenTeen();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>. Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до
+        100).
+        Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від
+        лівого або
+        правого краю) не більше ніж на 10.</p>
+
+
+    <script>
+        //1.Вводимо необхідні дані
+        const minLenghtBegin = 1;
+        const maxLenghtBegin = 50;
+        let randomLenghtBegin = minLenghtBegin + Math.floor(Math.random() * (maxLenghtBegin - minLenghtBegin + 1));
+        console.log(randomLenghtBegin);
+        const minLenghtEnd = 51;
+        const maxLenghtEnd = 100;
+        let randomLenghtEnd = minLenghtEnd + Math.floor(Math.random() * (maxLenghtEnd - minLenghtEnd + 1));
+        console.log(randomLenghtEnd);
+        let randomLenghtBeginCalculate = randomLenghtBegin - 10;
+        let randomLenghtEndCalculate = randomLenghtEnd + 10;
+        console.log(randomLenghtBeginCalculate);
+        console.log(randomLenghtEndCalculate);
+        let chooseLenght = parseFloat(prompt('Веддите начало отрезка', '0'));
+        //2.Знаходимо результат
+        let info;
+        if (chooseLenght >= randomLenghtBeginCalculate && chooseLenght <= randomLenghtEndCalculate) {
+            info = 'Вы1 попали в промежуток.'
+        }
+        else {
+            info = 'Вы не попали в промежуток.'
+        }
+
+        //3.Виводимо результа
+
+        console.log(info); 42
+        document.write(`${info}
+                 `)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <h1>Task 3</h1>
+    <p>
+      Задача. Користувач задає місяць навчання учня (перевіряти чи є числом, чи від 1 до 12, чи не канікули) та оцінку (перевіряти чи є числом, чи від 1 до 100). Вивести чи зможе він виправити оцінку (якщо оцінка погана і це не останній місяць у семестрі) . Обробку усіх помилок зробити з
+      використанням відповідних класів.
+    </p>
+    <br />
+    <script>
+      class ErrorNumber extends Error {
+        constructor(title) {
+          super();
+          this.title = title;
+          this.message = `${this.title} это не номер!`;
+          this.name = "ErrorNumber";
+        }
+      }
+      class ErrorRange extends Error {
+        constructor(title) {
+          this.title = title;
+          this.message = `${this.title} это не оценка!`;
+          this.name = "ErrorRange";
+        }
+      }
+      class ErrorHoliday extends Error {
+        constructor(title) {
+          this.title = title;
+          this.message = `${this.title} это не выходной день!`;
+          this.name = "ErrorHoliday";
+        }
+      }
+
+      const monthFromUser = parseFloat(prompt("Введите месяц:"));
+      const gradeFromUser = parseFloat(prompt("Введите оценку:"));
+
+      try {
+        if (isNaN(monthFromUser)) throw new ErrorNumber("Месяц");
+        else if (monthFromUser < 1 || monthFromUser > 12) throw new ErrorRange("Месяц");
+        else if (monthFromUser >= 6 || monthFromUser <= 8) throw new ErrorHoliday("Месяц");
+
+        if (isNan(gradeFromUser)) throw new ErrorRange("Оценка");
+        else if (gradeFromUser < 1 || gradeFromUser > 100) throw new ErrorRange("Оценка");
+      } catch (error) {
+        flag = false;
+        if (error instanceof ErrorNumber) {
+          alert(error.message + `, введите только номер!`);
+        } else if (error instanceof ErrorRange) {
+          alert(error.message + `, введите корректный номер!`);
+        } else if (error instanceof ErrorHoliday) {
+          alert(error.message);
+        }
+      } finally {
+        if (flag) {
+          if (monthFromUser !== 5 && monthFromUser !== 12 && gradeFromUser < 75) {
+            alert("Вы можете исправить оценку.");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

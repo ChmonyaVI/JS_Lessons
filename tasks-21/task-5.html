@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Task 5</title>
+    <style>
+      body {
+      }
+      .cnt {
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Task 5</h1>
+
+    <p>
+      На формі вводять 7 числових значень (вік, зріст, вага, заробітна плата,
+      стаж, номер відділу, порядковий номер). Додати подію обробки події click
+      на форму і якщо клік на input, то автоматично замінювати значення його на
+      0.
+    </p>
+
+    <br />
+    <div id="cnt" class="cnt">
+      <form action="#" class="form">
+        <label class="label">
+          Возраст
+          <input type="number" placeholder="your age" class="input" />
+        </label>
+        <label class="label">
+          Рост
+          <input type="number" placeholder="your height" class="input" />
+        </label>
+        <label class="label">
+          Вес
+          <input type="number" placeholder="your weight" class="input" />
+        </label>
+        <label class="label">
+          Зарплата
+          <input type="number" placeholder="Salary" class="input" />
+        </label>
+        <label class="label">
+          Стаж работы
+          <input type="number" placeholder="Work experience" class="input" />
+        </label>
+        <label class="label">
+          Номер отдела
+          <input type="number" placeholder="Department number" class="input" />
+        </label>
+        <label class="label">
+          Серийный номер
+          <input type="number" placeholder="Serial number" class="input" />
+        </label>
+      </form>
+    </div>
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("click", (e) => {
+        if (e.target.classList.contains("input")) {
+          e.target.value = 0;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 2. З клавіатури вводиться розмір заробітної плати та розмір прожиткового
+        мінімуму. Визначити розмір соціальної допомоги (ввжаємо, що заробітна
+        плата є меншою).</h1>
+    <script>
+        //1.Вводимо необхідні дані
+        let a = parseInt(prompt('Веддите размер заработной платы ', '0'));
+        let b = parseInt(prompt('Веддите размер прожиточного минимума ', '0'));
+
+        //2.Знаходимо результат
+        let calc = b - a;
+        let result = calc;
+
+        //3.Виводимо результа
+        document.write(`
+        Размер социальной помощи составляет ${result} гривень. </br1> Если отевет отрицателен то соци выплата не нужна.`)
+    </script>
+</body>
+
+</html>

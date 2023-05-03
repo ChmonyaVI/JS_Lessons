@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 1. Дано ширину екрана та кількість елементів, які повинні бути відображені
+        у рядку. Визначити ширину елементів, які повинні бути відображені у
+        цьому рядку.</h1>
+
+
+    <script>
+        //1.Вводимо необхідні дані
+        let elements = parseInt(prompt('Веддите количество элементов', '0'));
+        const screenWidth = window.screen.width;
+
+        //2.Знаходимо результат
+        let calc = screenWidth / elements;
+
+        //3.Виводимо результа
+        document.write(`Ширина экрана составляет ${screenWidth} px, ширина каждого элемента составляет ${calc} px`)
+    </script>
+</body>
+
+</html>

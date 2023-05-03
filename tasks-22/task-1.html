@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Task 1</title>
+    <style></style>
+  </head>
+
+  <body>
+    <h1>Task 1</h1>
+
+    <p>Задача. Створити клас Client.</p>
+    <img src="./taks1/task.png" alt="" />
+
+    <br />
+    <h2>Решение</р>
+    <script>
+        class Client {
+            #money
+            constructor({ID,name,money}){
+                this.ID = ID
+                this.name = name
+                this.Money = money
+            }
+            get Money(){
+                return this.#money
+            }
+            set Money(newBalance){
+                if(newBalance>=0){
+                    this.#money = newBalance
+                }
+            }
+            AddMoney(value){
+                this.money+=value
+            }
+            TakeMoney(value){
+                if (this.money >= value) {
+                   this.money -= value 
+                }
+                else throw new Error ('Не достаточно средств.')
+            }
+            toString(){
+                return `${this.name} has ${this.Money}`
+            }
+        }
+        class GoldenClinet extends Client{
+            constructor({ID,name,money,limit,creditProcent}){
+                super({ID,name,money})
+                this.limit = limit
+                this.creditProcent = creditProcent
+            }
+            calculatedCredit(creditValueMoney, quantityDays){
+                return((creditValueMoney*this.creditProcent)/100/365)*quantityDays
+            }
+            toString(){
+                return `${super.toString()} and ${this.limit}$ limit credit.`
+            }
+        }
+
+        class Bank{
+            constructor(clientsList){
+                this.clients = []
+                this.createClientsArray(clientsList)
+            }
+            createClientsArray(clientArr){
+                for (const client of clientArr) {
+                    if (client.money<8000) {
+                        const newClient = new Client(client)
+                        this.clients.push(newClient)
+                    }else{
+                        const newClient = new GoldenClinet(client)
+                        this.clients.push(newClient)
+                    }
+                }
+            }
+            showOneClients(){
+                const array =[]
+                this.clients.forEach((client)=>(!(client instanceof GoldenClinet)? array.push(client):null))
+                document.write(array)
+            }
+            showGoldenClients(){
+                const array =[]
+                this.clients.forEach((client)=>(client instanceof GoldenClinet ? array.push(client):null))
+                document.write(array)
+            }
+            getSum(){
+                return this.client.reduce((prevSum,client)=>prevSum+client.money,0)
+            }
+        }
+
+        const clientsList=[
+            {ID:1, name: 'Hawk', money: 100000, limit: 2000000, creditProcent: 20},
+            {ID:2, name: 'John', money: 1000, limit: 20000, creditProcent: 15},
+            {ID:3, name: 'Marta', money: 33364, limit: 50000, creditProcent: 9},
+            {ID:4, name: 'Ben', money: 5440, limit: 20000, creditProcent: 15},
+            {ID:5, name: 'Greg', money: 2100, limit: 20000, creditProcent: 11},
+        ]
+        const bank = new Bank(clientsList)
+        console.log(bank);
+    </script>
+  </body>
+</html>

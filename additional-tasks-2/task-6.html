@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 6. Дано три дійсні змінні a, b і c. Скласти алгоритм, який міняє місцями
+        значення цих змінних наступним чином: змінна a набуває значення
+        змінної b, змінна b набуває значення змінної c, а змінна c – попереднє
+        значення змінної a.</h1>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let a = parseInt(prompt('Веддите переменную a', '0'));
+        let b = parseInt(prompt('Веддите переменную b', '0'));
+        let c = parseInt(prompt('Веддите переменную c', '0'));
+        //2.Знаходимо результат
+        let d = a;
+        a = b;
+        b = c;
+        c = d;
+
+        //3.Виводимо результа
+        document.write(`
+        Значение a = ${a} <br>
+        Значение b = ${b} <br>
+        Значение c = ${c} <br>`)
+    </script>
+</body>
+
+</html>

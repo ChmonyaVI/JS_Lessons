@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <br>
+    <p>Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. Виграє той, у кого число
+        знаходиться
+        ближче до загаданого комп’ютером числа.</p>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let firstPlayerNumber = parseInt(prompt('Первому игроку ввести число', '0'));
+        let secondPlayerNumber = parseInt(prompt('Второму игроку ввести число', '0'));
+        const minNumberFromComputer = 1;
+        const maxNumberFromComputer = 10;
+        let randomNumberFromComputer = minNumberFromComputer + Math.floor(Math.random() * (maxNumberFromComputer - minNumberFromComputer + 1));
+        console.log(randomNumberFromComputer);
+
+        //2.Знаходимо результат
+        let user1dif = Math.abs(randomNumberFromComputer - firstPlayerNumber);
+        let user2dif = Math.abs(randomNumberFromComputer - secondPlayerNumber);
+        console.log(user1dif);
+        console.log(user2dif);
+
+        if (user1dif < user2dif)
+            console.log('1 win');
+        else if (user1dif > user2dif)
+            console.log('2 win');
+        else
+            console.log('Ничья');
+
+        //3.Виводимо результа
+        document.write(`
+             `)
+    </script>
+</body>
+
+</html>

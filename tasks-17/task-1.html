@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <p>
+        Створити клас, що дозволяє виконувати такі операції над масивами: знаходження кількості додатних, кількості
+        від’ємних,
+        кількість входжень деякого числа (статичні методи)
+    </p>
+
+    <script>
+        class arrayCalculation {
+
+            constructor(arrayList, numberRange) {
+                this.arrayList = [...arrayList]
+                this.numberRange = numberRange
+            }
+            static getPositiveNumber(arrayList) {
+                return arrayList.reduce((prev, element) => (element > 0 ? (prev + 1) : prev), 0)
+            }
+            static getNegativeNumber(arrayList) {
+                return arrayList.reduce((prev, element) => (element < 0 ? (prev + 1) : prev), 0)
+            }
+            static getRangeNumber(arrayList, numberRange) {
+                return arrayList.reduce((prev, element) => (element === numberRange ? (prev + 1) : prev), 0)
+            }
+        }
+        let test1 = new arrayCalculation([22, -5, 5, 0, 33, -82, -14, 1, 5, 2, 5])
+        document.write(`Количество положительных: ${arrayCalculation.getPositiveNumber([22, -5, 5, 0, 33, -82, -14, 1, 5, 2, 5])}<br>`)
+        document.write(`Количество отрицательных: ${arrayCalculation.getNegativeNumber([22, -5, 5, 0, 33, -82, -14, 1, 5, 2, 5])}<br>`)
+        document.write(`Количество пятерок, которые есть в массиве: ${arrayCalculation.getRangeNumber([22, -5, 5, 0, 33, -82, -14, 1, 5, 2, 5], 5)}`)
+
+    </script>
+    <!-- <script>
+    class arrayCalculation {
+
+        static positiveCounter = 0
+        static negativeCounter = 0
+        static rangeCounter = 0
+
+        constructor(arrayList, numberRange) {
+            this.arrayList = [...arrayList]
+            this.numberRange = numberRange
+        }
+        static getPositiveNumber(arrayList) {
+            for (let i = 0; i < this.arrayList.length; i++) {
+                if (arrayCalculation.arrayList[i] > 0) arrayCalculation.positiveCounter++
+            }
+            return arrayCalculation.positiveCounter
+        }
+        static getNegativeNumber(arrayList) {
+            for (let i = 0; i < this.arrayList.length; i++) {
+                if (arrayCalculation.arrayList[i] < 0) arrayCalculation.negativeCounter++
+            }
+            return arrayCalculation.negativeCounter
+        }
+        static getRangeNumber(arrayList, numberRange) {
+            for (let i = 0; i < this.arrayList.length; i++) {
+                if (arrayCalculation.arrayList[i] === numberRange) arrayCalculation.rangeCounter++
+            }
+            return arrayCalculation.rangeCounter
+        }
+        static getResult() {
+            return `Количество положительных чисел ${positiveCounter}<br>Количество отрицательных чисел ${negativeCounter}<br>Количство входящих в диапазон ${rangeCounter}<br>`
+        }
+    }
+    let test1 = new arrayCalculation([22, -5, 5, 0, 33, -82, -14, 1, 5, 2, 5])
+    document.write(`${arrayCalculation.getNegativeNumber([22, -5, 5, 0, 33, -82, -14, 1, 5, 2, 5])}`)
+
+</script> -->
+</body>
+
+</html>

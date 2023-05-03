@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 15</title>
+</head>
+
+<body>
+    <h2>ДЗ №15 Основные задачи</h2>
+    <ol>
+        <li>
+            <h3>
+                <a href="./tasks-15/task-1.html">Задача 1</a>
+            </h3>
+            <p> Задача 0. Дано два об’єкта. Обидва містять масив цілих чисел. При цьому у одному з них є функція
+                знаходження суми,
+                а у іншому –
+                функція для знаходження добутку тих, які знаходяться між заданими мінімальним і максимальних
+                значенням.<br>Використати обидва методи стосовно обидвох об’єктів (використати call, apply)
+            </p>
+        </li>
+        <li>
+            <h3>
+                <a href="./tasks-15/task-2.html">Задача 2</a>
+            </h3>
+            <p>
+                Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому
+                випадку.
+            </p>
+        </li>
+        <li>
+            <h3>
+                <a href="./tasks-15/task-3.html">Задача 3</a>
+            </h3>
+            <p>
+                Задача 2. Створити об’єкт «Авто».
+            </p>
+        </li>
+        <li>
+            <h3>
+                <a href="./tasks-15/task-4.html">Задача 4</a>
+            </h3>
+            <p>
+                Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+            </p>
+        </li>
+        <li>
+            <h3>
+                <a href="./tasks-15/task-5.html">Задача 5</a>
+            </h3>
+            <p>
+                адача 4. Розробити клас Baner
+            </p>
+        </li>
+        <li>
+            <h3>
+                <a href="./tasks-15/task-6.html">Задача 6</a>
+            </h3>
+            <p>
+                Задача 5. Розробити клас «Керівник танців»
+            </p>
+        </li>
+        <script>
+            //https://www.codewars.com/kata/56cca888a9d0f25985000036/train/javascript
+            function candiesToBuy(kids) {
+                let sumResult = 1
+                for (let i = 1; i <= kids; i++) {
+                    sumResult *= i
+                }
+                console.log(sumResult);
+                if (sumResult % kids === 0) return true
+                else false // amount of candies
+            }
+            let test = candiesToBuy(15);
+            console.log(test);
+        </script>
+</body>
+
+</html>

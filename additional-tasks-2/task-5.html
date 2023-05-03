@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 5. Визначити, яку платню одержить на фірмі сумісник за виконану роботу,
+        якщо йому нараховано S грн., а податок становить 20%.</h1>
+
+
+    <script>
+        //1.Вводимо необхідні дані
+        let royal = parseInt(prompt('Веддите зарабоиную плату', '0'));
+        const tax = 0.82002;
+        //2.Знаходимо результат
+        let calc = royal * tax;
+        let result = calc;
+        let whole = Math.trunc(result);
+        let remainder = royal % tax;
+        let remainder1 = remainder.toFixed(2);
+        //3.Виводимо результа
+        document.write(`5000
+        Заработная плата, с учетом 20% НДС, составляет ${whole} гривень, ${remainder1} копеек.`)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <p>
+        Розробити калькулятор
+    </p>
+
+    <br>
+    <label>
+        First number
+        <input type="number" value="0" id="firstNumber">
+    </label><br>
+    <label>
+        Second number
+        <input type="number" value="0" id="secondNumber">
+    </label>
+    <div class="block-buttons">
+        <button onclick="sum()" id="sum" type="submit" class="button">Додати</button>
+        <button onclick="subtract()" id="subtract" type="submit" class="button">Отнять</button>
+        <button onclick="multiply()" id="multiply" type="submit" class="button">Умножить</button>
+        <button onclick="divide()" id="divide" type="submit" class="button">Разделить</button>
+    </div>
+    <label>
+        Результат
+        <input type="text" name="" id="result">
+    </label>
+
+    <script>
+        function sum() {
+            const num1 = parseFloat(document.getElementById('firstNumber').value)
+            const num2 = parseFloat(document.getElementById('secondNumber').value)
+            const sum = num1 + num2
+            document.getElementById('result').value = sum
+        }
+        function subtract() {
+            const num1 = parseFloat(document.getElementById('firstNumber').value)
+            const num2 = parseFloat(document.getElementById('secondNumber').value)
+            const sum = num1 - num2
+            document.getElementById('result').value = sum
+        }
+        function multiply() {
+            const num1 = parseFloat(document.getElementById('firstNumber').value)
+            const num2 = parseFloat(document.getElementById('secondNumber').value)
+            const sum = num1 * num2
+            document.getElementById('result').value = sum
+        }
+        function divide() {
+            const num1 = parseFloat(document.getElementById('firstNumber').value)
+            const num2 = parseFloat(document.getElementById('secondNumber').value)
+            const sum = num1 / num2
+            document.getElementById('result').value = sum
+        }
+    </script>
+
+</body>
+
+</html>

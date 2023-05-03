@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 10 T-1</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <br>
+    <p>
+        1) Заполнить массив нулями, кроме первого и последнего элементов, которые должны быть равны единице.<br>
+        2) Заполнить массив нулями и единицами, при этом данные значения чередуются, начиная с нуля.<br>
+        3) Заполнить массив последовательными нечетными числами, начиная с единицы.<br>
+        4)<br>
+        5)Сформировать возрастающий массив из четных чисел.<br>
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        //let question = parseInt(prompt('Задайте длинну массива:', '5'))
+        let arr = new Array(3).fill(0);
+        let arrOne = arr.fill(1, 0, 1);
+        arrOne[arrOne.length - 1] = 1
+        document.write(`1) ${arrOne}<br>`)
+        //========================================================================================================================================================
+        let secondArr = new Array(7).fill(1)
+        newSecondArr = secondArr.map((element, index) => index % 2)
+        document.write(`2) ${newSecondArr}<br>`)
+        //========================================================================================================================================================
+        function arrThree() {
+            let thirdArr = [];
+            const thirdLength = 10;
+            for (let i = 0; i < thirdLength; i++) {
+                if (i % 2) {
+                    thirdArr.push(i)
+                }
+            }
+            return thirdArr
+        }
+        let threeArray = arrThree();
+        document.write(`3) ${threeArray}<br>`)
+        //========================================================================================================================================================
+        // let fourArr = new Array(6).fill(0);
+        // function fourArr1(arg, element) {
+        //     fourArr[0] = arg
+        //     for (let i = 1; i <= fourArr.length; i++) {
+        //         fourArr[i] = fourArr[i - 1] + element
+        //     }
+        //     return fourArr
+        // }
+        // let fourFuncArr = fourArr1(1, 2);
+        // console.log(fourFuncArr);
+        //========================================================================================================================================================
+        function arrFive() {
+            let fivedArr = [];
+            const fiveLength = 10;
+            for (let i = 0; i <= fiveLength; i++) {
+                if (i % 2 === 0) {
+                    fivedArr.push(i)
+                }
+            }
+            return fivedArr
+        }
+        let fiveArray = arrFive();
+        document.write(`5) ${fiveArray}<br>`)
+        //========================================================================================================================================================
+        function arrSix(arg) {
+            let sixArr = [];
+            sixArr[0] = arg
+            for (let i = arg; i > 0; i--) {
+                if (i % 3 === 0) {
+                    sixArr.push(i)
+                }
+            }
+            return sixArr
+        }
+        let sixArray = arrSix(10);
+        document.write(`6) ${sixArray}<br>`)
+        //2.Знаходимо результат
+
+        //3.Виводимо результа
+        document.write(``)
+    </script>
+</body>
+
+</html>

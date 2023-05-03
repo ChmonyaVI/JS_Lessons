@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <p>
+        Створити клас Нагадувач. Кожні вказані кількості секунд (використати setInterval) програма
+        нагадує про якусь подію (це
+        просто текст) і також виводиться порядковий номер скільки раз вже нагадування було. Зробити так, щоб
+        неможна було
+        зробити одночасно декілька об’єктів-нагадувачів. Методи зупинки таймера, метод зміни повідомлення без
+        зупинки таймера.
+    </p>
+
+    <script>
+        class reminder {
+            static reminderObj
+            static interval
+            static message
+            static someInteeval
+
+            constructor(interval, message) {
+                if (reminder.reminderObj)
+                    return reminder.reminderObj
+                reminder.interval = interval
+                reminder.message = message
+
+                reminder.reminderObj = this
+            }
+            static startReminder() {
+                let counter = 0
+                reminder.someInteeval = setInterval(() => {
+                    counter += 1
+                    alert(`${reminder.message}: ${counter}`)
+                }, reminder.interval * 1000)
+            }
+            static cleanInterval() {
+                clearInterval(reminder.someInteeval)
+            }
+            static messageChange(message) {
+                reminder.message = message
+            }
+
+        }
+        let test1 = new reminder(5, 'Сообщение номер:')
+        reminder.startReminder()
+        setTimeout(() => {
+            reminder.messageChange('Это новое сообщение под номером ')
+        }, 8000)
+        setTimeout(() => {
+            reminder.cleanInterval()
+        }, 12000)
+
+    </script>
+
+</body>
+
+</html>

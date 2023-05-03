@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Task 6</title>
+    <style>
+      body {
+        background-color: #333;
+        padding: 30px;
+        color: #fff;
+      }
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+      }
+      .cnt {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      [class*="__container"] {
+        max-width: 1260px;
+        margin: 0 auto;
+
+        box-sizing: border-box;
+        padding: 0 15px;
+      }
+
+      .wrapper {
+        min-height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .wrapper > main {
+        flex: 1 1 auto;
+      }
+
+      .page__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+      @media (max-width: 1150px) {
+        .page__container {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 890px) {
+        .page__container {
+          grid-template-columns: repeat(2, 1fr);
+          padding-top: 30px;
+          padding-bottom: 30px;
+        }
+      }
+      @media (max-width: 600px) {
+        .page__container {
+          grid-template-columns: auto;
+        }
+      }
+
+      .task {
+        min-height: 300px;
+        background-color: #555;
+        border-radius: 20px;
+        padding: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        flex-direction: column;
+      }
+      .task__title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .task__title:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      .task__description {
+        text-align: center;
+
+        flex: 1 1 auto;
+        line-height: 1.3;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+      }
+      .task__description:not(:last-child) {
+        margin-bottom: 25px;
+      }
+      .task__button {
+        justify-self: center;
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+
+        justify-content: center;
+        padding: 12px 40px;
+        background-color: rgb(55, 170, 170);
+        border: 2px solid rgb(55, 170, 170);
+        border-radius: 20px;
+
+        transition: all 0.3s ease 0s;
+        color: #fff;
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+        text-decoration: none;
+      }
+      .task__button:hover {
+        background-color: transparent;
+        color: rgb(55, 170, 170);
+      }
+
+      .back {
+        display: block;
+        color: rgb(55, 170, 170);
+        font-size: 24px;
+        text-decoration: underline !important;
+        margin-bottom: 20px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .title {
+        font-size: 30px;
+        line-height: 1.3;
+        margin-bottom: 30px;
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .description {
+        font-size: 18px;
+        line-height: 1.3;
+        margin-bottom: 30px;
+        max-width: 700px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      table {
+        border-spacing: 10px;
+        border-collapse: separate;
+        border: 1px solid #fff;
+        font-size: 16px;
+      }
+
+      td {
+        border: 1px solid #fff;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .btn {
+        background-color: #276f72;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+
+      .input {
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin-left: 10px;
+        float: right;
+      }
+
+      .label {
+        display: block;
+        color: #fff;
+        font-size: 20px;
+        margin-right: 20px;
+        font-family: "Poppins", sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .list {
+        border: 2px solid #fff;
+        padding: 10px;
+        width: 300px;
+      }
+      .list__item {
+        background-color: rgba(51, 51, 51, 0.6901960784);
+        border: 2px solid #fff;
+        padding: 5px;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        list-style: none;
+      }
+
+      .button {
+        display: inline-flex;
+        padding: 12px 40px;
+        background-color: rgb(55, 170, 170);
+        border: 2px solid rgb(55, 170, 170);
+        border-radius: 20px;
+
+        transition: all 0.3s ease 0s;
+        color: #fff;
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: transparent;
+        color: rgb(55, 170, 170);
+      }
+
+      .container-4 {
+        display: flex;
+        gap: 20px;
+
+        flex-wrap: wrap;
+      }
+
+      td {
+        background-color: #333;
+        cursor: pointer;
+      }
+      td:active {
+        background-color: #535353;
+      }
+
+      .label {
+        max-width: 400px;
+      }
+
+      .item {
+        display: flex;
+        border: 1px solid blue;
+        align-items: center;
+        gap: 30px;
+        padding: 15px;
+      }
+      .item__image {
+        height: 200px;
+      }
+      .item__image img {
+        height: 100%;
+        width: 100%;
+
+        object-fit: contain;
+      }
+      .item__info {
+        display: flex;
+
+        align-items: center;
+        gap: 15px;
+      }
+      .item__title {
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+      }
+      .item__price {
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+      }
+      .item__price span {
+        margin-left: 10px;
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(235, 118, 118);
+      }
+      .item__delete {
+        border: none;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-color: red;
+      }
+
+      .quantity {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        height: 15px;
+      }
+
+      .quantity__button {
+        width: 45px;
+        height: 45px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fff;
+        font-size: 25px;
+        font-family: "Poppins", sans-serif;
+        cursor: pointer;
+      }
+      .quantity__number {
+        font-size: 25px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .container-5 {
+        display: flex;
+
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .total-sum {
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+      }
+      .total-sum span {
+        margin-left: 10px;
+        font-size: 25px;
+        font-weight: 500;
+        color: rgb(235, 118, 118);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Task 6</h1>
+
+    <p>Приклад. Дано перелік товарів у кошику. При зміні кількості одиниць товару збільшувати загальну вартість. Створити клас Product, що призначений для маніпуляцій товаром та клас ProductManager що оперує з усіма товарами через подію передвати ідентифікатор товару та операцію, що зроблена</p>
+
+    <br />
+    <div class="cnt"></div>
+    <script>
+      class ElementCreator {
+        static createElement({ tag, attrs, props, events }) {
+          const element = document.createElement(tag);
+          if (attrs) {
+            for (const attrKey in attrs) {
+              element.setAttribute(attrKey, attrs[attrKey]);
+            }
+          }
+          if (props) {
+            for (const propsKey in props) {
+              element[propsKey] = props[propsKey];
+            }
+          }
+          if (events) {
+            for (const eventType in events) {
+              element.addEventListener(eventType, events[eventType]);
+            }
+          }
+          return element;
+        }
+      }
+
+      class Product {
+        constructor({ imageSrc, titleProduct, price }) {
+          this.imageSrc = imageSrc;
+          this.titleProduct = titleProduct;
+          this.price = price;
+          this.totalPrice = price;
+          this.itemCount = 1;
+          this.element = this.createItem();
+          this.id = new Date().getTime();
+        }
+        deleteItem() {
+          const deleteItem = new CustomEvent("delete", {
+            detail: {
+              id: this.id,
+              price: this.price,
+              count: this.quantityNumber,
+            },
+          });
+          this.element.dispatchEvent(deleteItem);
+        }
+        onIncreaseItem() {
+          const plusItem = new CustomEvent("increase", {
+            detail: {
+              id: this.id,
+              price: this.price,
+              count: this.quantityNumber,
+              priceContainer: this.productPriceContainer,
+              targetBtn: this.btnPlus,
+            },
+          });
+          this.element.dispatchEvent(plusItem);
+        }
+        onDecreaseItem() {
+          const minusItem = new CustomEvent("decrease", {
+            detail: {
+              id: this.id,
+              price: this.price,
+              count: this.quantityNumber,
+              priceContainer: this.productPriceContainer,
+              targetBtn: this.btnMinus,
+            },
+          });
+          this.element.dispatchEvent(minusItem);
+        }
+        createItem() {
+          const item = ElementCreator.createElement({ tag: "div", attrs: { class: "item" } });
+          const itemInfo = ElementCreator.createElement({ tag: "div", attrs: { class: "item__info" } });
+          const itemImage = ElementCreator.createElement({ tag: "div", attrs: { class: "item__image" } });
+          const image = ElementCreator.createElement({ tag: "img", attrs: { src: this.imageSrc } });
+          const itemText = ElementCreator.createElement({ tag: "p", attrs: { class: "item__title" }, props: { innerText: this.titleProduct } });
+          itemImage.append(image);
+          itemInfo.append(itemImage);
+          itemInfo.append(itemText);
+          item.append(itemInfo);
+          const quantity = ElementCreator.createElement({ tag: "div", attrs: { class: "quantity" } });
+          this.btnMinus = ElementCreator.createElement({ tag: "button", attrs: { class: "quantity__button quantity__button-minus" }, props: { innerText: "-" }, events: { click: this.onDecreaseItem.bind(this) } });
+          this.btnPlus = ElementCreator.createElement({ tag: "button", attrs: { class: "quantity__button quantity__button-plus" }, props: { innerText: "+" }, events: { click: this.onIncreaseItem.bind(this) } });
+          this.quantityNumber = ElementCreator.createElement({ tag: "span", attrs: { class: "quantity__number" }, props: { innerText: this.itemCount } });
+          quantity.append(this.btnMinus);
+          quantity.append(this.quantityNumber);
+          quantity.append(this.btnPlus);
+          item.append(quantity);
+          this.productPriceContainer = ElementCreator.createElement({ tag: "span", props: { innerText: `${this.price} ₴` } });
+          const productPriceParent = ElementCreator.createElement({ tag: "div", attrs: { class: "item__price" }, props: { innerText: "К оплате: " } });
+          productPriceParent.append(this.productPriceContainer);
+          item.append(productPriceParent);
+          this.deleteItem = ElementCreator.createElement({ tag: "button", attrs: { class: "quantity" }, events: { click: this.deleteItem.bind(this) } });
+          item.append(this.deleteItem);
+          return item;
+        }
+      }
+      class ProductManager {
+        constructor(productList) {
+          this.productList = productList;
+          this.itemList = [];
+          this.totalCost = 0;
+        }
+        updatePrices() {
+          this.totalCostContainer.innerText = `${this.totalCost} грн.`;
+        }
+        onDelete(e) {
+          e.target.remove();
+          this.totalCost -= e.detail.price * parseInt(e.detail.count.innerText);
+          this.updatePrices();
+        }
+        onDecrease(e) {
+          let count = parseInt(e.detail.count.innerText);
+          if (count <= 1) {
+            e.detail.targetBtn.setAttribute("disable", "true");
+          } else {
+            e.detail.targetBtn.removeAttribute("disable");
+            count--;
+            e.detail.count.innerText = count;
+            let price = e.detail.price;
+            e.detail.priceContainer.innerText = `${price * count} грн`;
+            this.totalCost -= price;
+            this.updatePrices();
+          }
+        }
+        onIncrease(e) {
+          let count = parseInt(e.detail.count.innerText);
+          if (count >= 10) {
+            e.detail.targetBtn.setAttribute("disable", "true");
+          } else {
+            e.detail.targetBtn.removeAttribute("disable");
+            count++;
+            e.detail.count.innerText = count;
+            let price = e.detail.price;
+            e.detail.priceContainer.innerText = `${price * count} грн`;
+            this.totalCost += price;
+            this.updatePrices();
+          }
+        }
+        render(targetSelector) {
+          const container = document.querySelector(targetSelector);
+          for (const product of this.productList) {
+            let item = new Product(product);
+            item.element.addEventListener("decrease", this.onDecrease.bind(this));
+            item.element.addEventListener("increase", this.onIncrease.bind(this));
+            item.element.addEventListener("delete", this.onDelete.bind(this));
+            this.totalCost += product.price;
+            container.append(item.element);
+          }
+          this.totalCostContainer = ElementCreator.createElement({ tag: "span", props: { innerText: `${this.totalCost} ₴` } });
+          const totalCostParent = ElementCreator.createElement({ tag: "div", attrs: { class: "total-sum" }, props: { innerText: `Общая сумма: ` } });
+          totalCostParent.append(this.totalCostContainer);
+          container.append(totalCostParent);
+        }
+      }
+      const productLits = [
+        {
+          imageSrc: "./task-6/guitara.jpg",
+          titleProduct: "Guitara classic",
+          price: 700,
+        },
+        {
+          imageSrc: "./task-6/tv.jpg",
+          titleProduct: "Samsung Smart TV",
+          price: 10000,
+        },
+        {
+          imageSrc: "./task-6/mouse.jpg",
+          titleProduct: "Game Computer Mouse",
+          price: 1500,
+        },
+      ];
+      let test = new ProductManager(productLits);
+      test.render(".cnt");
+    </script>
+  </body>
+</html>

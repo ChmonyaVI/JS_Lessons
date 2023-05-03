@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <br>
+    <p>Модифікувати попередню задачу з можливістю після пострілу переміщення корабля у випадковим чином вибрану сусідню
+        клітинку (якщо звичайно корабель не було потоплено за першим разом).</p>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let numberOfCells = parseInt(prompt('Введите минимальное количество квадратов (Максимум 10)', '0'));
+        const minNumberFromComputer = 1;
+        const maxNumberFromComputer = numberOfCells;
+        let locationShip = minNumberFromComputer + Math.floor(Math.random() * (maxNumberFromComputer - minNumberFromComputer + 1));
+
+        console.log(locationShip);
+        /* alert(`ship on ${locationShip} квадратов`);*/
+        let firstShoot = parseInt(prompt(`Введите число квадрата, чтобы сделать выстрел, количество квадратов ${numberOfCells}`, '0'));
+        let secondShoot = parseInt(prompt(`Введите число квадрата, чтобы сделать второй выстрел, количество квадратов ${numberOfCells}`, '0'));
+
+        let firstMissShoot = Math.abs(locationShip - firstShoot);
+        let secondMissShoot = Math.abs(locationShip - secondShoot);
+        if (firstMissShoot == 1)
+            document.write('Первым выстрелом вы повредили корабль корабль пермещен</br></br>');
+        else {
+            document.write('Первым выстрелом вы промазали.</br></br>');
+        }
+        const minNumberMoveShip = -1;
+        const maxNumberMoveShip = 1;
+        let newStepShip = minNumberFromComputer + Math.floor(Math.random() * (maxNumberFromComputer - minNumberFromComputer + 1));
+        let newLocationShip = locationShip + newStepShip;
+        console.log(newLocationShip);
+
+
+        if (newLocationShip == secondShoot)
+            document.write('Вы потопили корабль');
+        else
+            document.write('Вы проиграли.');
+        //2.Знаходимо результат
+
+
+        //3.Виводимо результа
+        document.write(`
+             `)
+    </script>
+</body>
+
+</html>

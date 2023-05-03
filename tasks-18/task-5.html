@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <p>
+        Відобразити таблицю 3*4 з випадковими числами (її треба динамічно створити і вставити на сторінку)
+    </p>
+
+    <br>
+    <!-- <table border="2px">
+        <tr>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>12</td>
+            <td>12</td>
+        </tr>
+    </table> -->
+    <table border="4px" id="table">
+
+    </table>
+
+    <script>
+
+        function createTable() {
+
+        }
+        //========================================================================================================================================================
+        let table = document.querySelector('#table');
+        for (let i = 0; i < 4; i++) {
+            let tr = document.createElement('tr');
+
+            for (let i = 0; i < 3; i++) {
+                function randomNum(minNumber = 0, maxNumber = 10) {
+                    let randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+                    return randomNumber
+                }
+                let number = randomNum()
+                let td = document.createElement('td');
+                td.innerHTML = number
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+        document.getElementById('table').style.border = "2px";
+    </script>
+
+</body>
+
+</html>

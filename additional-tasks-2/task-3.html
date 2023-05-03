@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 2. З клавіатури вводяться вартість одиниці та кількість одиниць двох товарів.
+        Вивести на екран вартість кожного з видів товарів окремо і загальну
+        вартість.</h1>
+
+
+    <script>
+        //1.Вводимо необхідні дані
+        let t1 = parseInt(prompt('Веддите количество первого товара', '0'));
+        let p1 = parseInt(prompt('Веддите цену первого товара', '0'));
+        let t2 = parseInt(prompt('Веддите количество второго товара', '0'));
+        let p2 = parseInt(prompt('Веддите цену второго товара', '0'));
+        //2.Знаходимо результат
+        let sum1 = t1 * p1;
+        let sum2 = t2 * p2;
+        let sum = sum1 + sum2;
+        //3.Виводимо результа
+        document.write(`
+        Сумма первого товара ${p1} и его общая стоимость ${sum1}. <br>
+        Сумма первого товара ${p2} и его общая стоимость ${sum2}. <br>
+        Сумма всех товаром ${sum}`)
+    </script>
+</body>
+
+</html>

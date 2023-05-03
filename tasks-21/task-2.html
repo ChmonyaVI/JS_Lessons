@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Task 2</title>
+    <style>
+      body {
+      }
+      .cnt {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Task 2</h1>
+
+    <p>
+      Дано 5 елементів input. При введенні значення у якийсь із них необхідно
+      автоматично заповнювати інші усі попередні у спадному порядку (кожен
+      попередній має начення на 1 менше за наступний), усі наступні на 1 більше
+      (кожен наступне на 1 більше за попереднього)
+    </p>
+
+    <br />
+    <div class="cnt">
+      <label class="label">
+        Value 1
+        <input type="number" class="input" />
+      </label>
+      <label class="label">
+        Value 2
+        <input type="number" class="input" />
+      </label>
+      <label class="label">
+        Value 3
+        <input type="number" class="input" />
+      </label>
+      <label class="label">
+        Value 4
+        <input type="number" class="input" />
+      </label>
+      <label class="label">
+        Value 5
+        <input type="number" class="input" />
+      </label>
+    </div>
+    <script>
+      let cnt = document.querySelector(".cnt");
+      cnt.addEventListener("click", (e) => {
+        let input = e.target;
+        let label = input.parentElement;
+        let copyLabel = label;
+        if (input.classList.contains("input")) {
+          let inputValue = parseFloat(input.value);
+          let copyInputValue = inputValue;
+          while (label.nextElementSibling) {
+            label = label.nextElementSibling;
+            label.firstElementChild.value = inputValue += 1;
+          }
+          inputValue = copyInputValue;
+          label = copyLabel;
+          while (label.previousElementSibling) {
+            label = label.previousElementSibling;
+            label.firstElementChild.value = inputValue -= 1;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

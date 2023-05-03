@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 6</title>
+</head>
+
+<body>
+    <h1>Task 6</h1>
+
+    <p>
+        Користувач задає кількість оцінок і натискає на кнопку «get table». В результаті формується таблиця з input,
+        куди
+        користувач вводить оцінки. Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+    </p>
+
+    <br>
+
+    <label for="price-number" class="first__label">
+        Price Number
+        <input type="number" placeholder="0" class="price-number-input input" id="priceNumber">
+    </label><br>
+    <div class="block-actions">
+        <button id="createBtn" type="submit" class="button__create">Get table</button>
+    </div>
+    <br>
+    <div class="table"></div>
+    <br>
+    <div class="block-get-sum">
+        <button type="button" class="get-sum">Get Sum</button>
+    </div>
+    <div class="avarage-value"></div>
+    <script>
+        function tableFunction() {
+            const numberCreateTAble = parseInt(document.querySelector('.price-number-input').value)
+            tableCreate(numberCreateTAble)
+        }
+        function tableCreate(elementQuantity) {
+            const getTable = document.querySelector('.table')
+
+            for (let i = 0; i < elementQuantity; i++) {
+                const createTable = document.createElement('div')
+
+                const createInp = document.createElement('input')
+                createInp.setAttribute('type', 'number')
+                createInp.classList.add('table__input')
+
+                createTable.prepend(createInp)
+                getTable.prepend(createTable)
+            }
+        }
+        function getSum() {
+            const tableIpnArr = document.querySelectorAll('.table__input')
+
+            const totalIpnVAlue = [].reduce.call(tableIpnArr, (prevSum, input) => prevSum + parseInt(input.value),
+                0
+            )
+            const avarageValue = totalIpnVAlue / tableIpnArr.length
+            const avarageValueBlock = document.querySelector('.avarage-value')
+            avarageValueBlock.innerHTML = `Total sum = ${avarageValue}`
+        }
+
+
+        const createTabBtn = document.querySelector('.button__create')
+        createTabBtn.onclick = tableFunction
+        const getSumBtn = document.querySelector('.block-get-sum')
+        getSumBtn.onclick = getSum
+
+    </script>
+
+</body>
+
+</html>
