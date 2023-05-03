@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+    <p>Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів. Користувач
+        стріляє вказуючи
+        координати. Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.</p>
+
+    <script>
+        //Создаем функция генерации случайного числа от 0 до 1
+        const lenghtArray = 6
+        const minNumber = 0;
+        const maxNumber = 1;
+        const rowsNumber = 6;
+        const columnsNumber = 6;
+        let minNumberArea = 0;
+        let maxNumberArea = 5;
+        let ships = 5;
+
+        function getRandomMoney(minNumber, maxNumber) {
+            return minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+        }
+        let getRandomNumber = getRandomMoney(minNumber, maxNumber);
+
+
+        function getRandomArea(minNumberArea, maxNumberArea) {
+            return minNumberArea + Math.floor(Math.random() * (maxNumberArea - minNumberArea + 1))
+        }
+
+
+
+        //Создаем функцию генерации одномерного массива с 6ю элементами
+        function getRowsArray(lenghtArray, maxNumber, maxNumber) {
+            const arrayRows = []
+            for (let i = 0; i < lenghtArray; i++) {
+                arrayRows.push(0)
+            }
+            return arrayRows
+        }
+        let array = getRowsArray(lenghtArray, maxNumber, maxNumber)
+        console.log(array);
+        //Создаем поле боя 6х6 с помощь двухмерный массив
+        function arrayBattleArea(rowsNumber, columnsNumber, minNumber, maxNumber) {
+            const arrayAreaForShip = []
+            for (let i = 0; i < rowsNumber; i++) {
+                const arrayRandomLocation = getRowsArray(columnsNumber, maxNumber, maxNumber)
+                arrayAreaForShip.push(arrayRandomLocation)
+            }
+            return arrayAreaForShip
+        }
+        let randomArrayWeeks = arrayBattleArea(rowsNumber, columnsNumber, minNumber, maxNumber)
+        console.log(randomArrayWeeks);
+        //Функция которая заполняет двумерный массив единицами
+        function pushShipInArray(minNumberArea, maxNumberArea, minNumber, maxNumber) {
+            for (let i = 0; i < ships; i++) {
+                let counter = 0;
+                const randomNumber = getRandomMoney(minNumber, maxNumber)
+                const randomNumberAreaX = getRandomArea(minNumberArea, maxNumberArea);
+                const randomNumberAreaY = getRandomArea(minNumberArea, maxNumberArea);
+                if (randomArrayWeeks[randomNumberAreaX][randomNumberAreaY] == 0) {
+                    randomArrayWeeks[randomNumberAreaX][randomNumberAreaY] = 1
+                    counter++
+                }
+                else counter--
+
+            }
+            return randomArrayWeeks
+        }
+        let areaWithShips = pushShipInArray(minNumberArea, maxNumberArea, minNumber, maxNumber)
+        console.log(areaWithShips);
+        //Делаем функцию, которая дает пользователю стрелять по полю с короблями
+
+        let counterMiss = 0;
+        function shotFromUser(areaWithShips) {
+
+            alert('Приготовиться к Выстрелу!')
+            for (let i = 0; ships > i;) {
+                let shotUserX = parseInt(prompt('Выберите координаты по оси Х', '1'))
+                let shotUserY = parseInt(prompt('Выберите координаты по оси Y', '1'))
+                if (isNaN(shotUserX) && isNaN(shotUserY)) {
+                    alert('Игра окончена!')
+                    break
+                }
+                else if (areaWithShips[shotUserX - 1][shotUserY - 1] === 1) {
+                    ships--
+                    alert(`Вы потопили корабль, осталось ${ships}`)
+                }
+                else {
+                    alert('Вы промахнулись, попробуйте ещё раз!!!')
+                    counterMiss++
+                }
+            }
+        }
+        let test1 = shotFromUser(areaWithShips)
+        console.log(`Вы уничтожили все корабли, количество выстрелов ${counterMiss}.`);
+    </script>
+</body>
+
+</html>

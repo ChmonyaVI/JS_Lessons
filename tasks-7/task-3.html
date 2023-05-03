@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <br>
+    <p>
+        Створити окремі функції, які для 4 чисел знаходять: <br>
+        1)суму;<br>
+        2)добуток;<br>
+        3)середнє арифметичне;<br>
+        4)мінімальне значення.<br>
+
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        //let months;
+
+        //2.Знаходимо результат
+        let firstNumber = parseFloat(prompt('Введите первую переменную', '1'));
+        let secondNumber = parseFloat(prompt('Введите вторую переменную', '2'))
+        let calculatedFunctionFirst = function (firstNumber, secondNumber) {
+            let resultFirst = firstNumber + secondNumber;
+            return resultFirst;
+        }
+        let calculatedFunctionSecond = function (firstNumber, secondNumber) {
+            let resultSecond = firstNumber * secondNumber;
+            return resultSecond;
+        }
+        let calculatedFunctionThird = function (firstNumber, secondNumber) {
+            let resultSecond = firstNumber * secondNumber;
+            return resultSecond;
+        }
+        let calculatedFunctionFour = function (firstNumber, secondNumber) {
+            let resultFour = Math.min(firstNumber, secondNumber);
+            return resultFour;
+        }
+        //3.Виводимо результа
+        let messageFirst = calculatedFunctionFirst(firstNumber, secondNumber);
+        let messageSecond = calculatedFunctionSecond(firstNumber, secondNumber);
+        let messageThird = calculatedFunctionThird(firstNumber, secondNumber);
+        let messageFour = calculatedFunctionFour(firstNumber, secondNumber);
+        document.write(`Сумма: ${messageFirst}</br>`);
+        document.write(`Произведение: ${messageSecond}</br>`);
+        document.write(`Среднее значение: ${messageThird}</br>`);
+        document.write(`Минимальное значение: ${messageFour}</br>`);
+
+    </script>
+</body>
+
+</html>

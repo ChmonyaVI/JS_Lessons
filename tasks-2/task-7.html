@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task </h1>
+
+    <p>
+        Задача 7.Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        const mounth = Math.round((Math.random() * (12 - 1)) + 1);
+        const week = Math.round(Math.random() * 6);
+        //2.Знаходимо результат
+        let sum = mounth + week;
+        //3.Виводимо результа
+        document.write(`
+        Сумма случайного номера месяца и номера дня : ${sum}`)
+    </script>
+</body>
+
+</html>

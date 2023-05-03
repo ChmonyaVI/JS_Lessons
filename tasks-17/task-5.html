@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <p>
+        Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий опис),
+        назва
+        книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи бібліотеки
+        (спеціальна
+        література, хобі, домашнє господарство і т.д.), походження книги і наявність на даний час. Організувати
+        додавання/вилучення книг та вибір книг за назвою, за ПІБ автора, за видавництвом.
+    </p>
+
+    <script>
+        //Автор
+        class Author {
+            constructor(nameAuthor, birthDayAuthor, description) {
+                this.nameAuthor = nameAuthor
+                this.birthDayAuthor = birthDayAuthor
+                this.description = description
+            }
+
+            toString() {
+                return `
+                ${this.nameAuthor}<br>
+                ${this.birthDayAuthor}<br>
+                ${this.description}
+                `
+            }
+        }
+        //Издательство
+        class Publication {
+            constructor(titlePublication, registrationID, yearCreat) {
+                this.titlePublication = titlePublication
+                this.registrationID = registrationID
+                this.yearCreat = yearCreat
+            }
+            toString() {
+                return `
+                ${this.titlePublication}<br>
+                ${this.registrationNumber}<br>
+                ${this.yearCreat = yearCreat}
+                `
+            }
+        }
+        //Книга
+        class Book {
+            constructor(authors, publisher, nameTitle, genre) {
+                this.authors = authors
+                this.nameTitle = nameTitle
+                this.genre = genre
+                this.publisher = publisher
+            }
+            toString() {
+                return `${this.authors},${this.publisher},${this.nameTitle},${this.genre}`
+            }
+        }
+
+        class PersonalLibrary {
+            constructor() {
+                this.books = []
+            }
+            addBook(book) {
+                this.books.push(book)
+            }
+            removeBook(book) {
+                this.books.filter(item => item !== book)
+            }
+            selectBookByStyle(nameTitle) {
+                return this.books.filter(item => item.nameTitle === nameTitle)
+            }
+            selectionOfBooksByAuthor(author) {
+                return this.books.filter(item => item.authors === author)
+            }
+            booksPublishingHouse(publishingHouseTItle) {
+                return this.books.filter(item => item.publisher.titlePublication === publishingHouseTItle)
+            }
+            selectBookByGenre(genre) {
+                return this.books.filter(item => item.genre === genre)
+            }
+            addSection(sectionTitle) {
+                this[sectionTitle] = []
+            }
+            addBookInSection(sectionTitle, book) {
+                if (!this[sectionTitle]) {
+                    throw new Error(`Секция ${sectionTitle} не существует!`)
+                }
+                this[sectionTitle].push(book)
+            }
+            removeBookFromSection(sectionTitle, book) {
+                if (!this[sectionTitle]) {
+                    throw new Error(`Секция ${sectionTitle} не существует!`)
+                }
+                this[sectionTitle] = this[sectionTitle].filter(item => item !== book)
+            }
+            availableBook(book) {
+                return this.books.includes(book)
+            }
+            getAllBooks() {
+                return this.books
+            }
+        }
+        //Создание автора
+        let author1 = new Author('Taras1', 1814, 'Тут должно быть описание про автора номер №1')
+        let author2 = new Author('Taras2', 1742, 'Тут должно быть описание про автора номер №2')
+        let author3 = new Author('Taras3', 1943, 'Тут должно быть описание про автора номер №3')
+        //Создание компании которая публикует книги
+        let publisher1 = new Publication('Man&CO', 13, 1991)
+        let publisher2 = new Publication('Urban Writer', 16, 1932)
+        let publisher3 = new Publication('Classic Liter', 187, 1911)
+        //Создание книги
+        let Book1 = new Book(author1, publisher1, 'Kobzar', 'History')
+        let Book2 = new Book(author2, publisher2, 'Harry Potter', 'Fantastic')
+        let Book3 = new Book(author3, publisher3, '1984', 'Utopia')
+
+        const myLibrary = new PersonalLibrary()
+        myLibrary.addBook(Book1)
+        myLibrary.addBook(Book2)
+        myLibrary.addBook(Book3)
+        //Проверка наличия книги
+        const availableBooks = myLibrary.availableBook(Book1)
+        console.log(availableBooks)
+        //Проверка всех книг
+        const allBooks = myLibrary.getAllBooks()
+        console.log(allBooks)
+        //Находим книгу по названию
+        const findBookByTitle = myLibrary.selectBookByStyle('Kobzar')
+        console.log(findBookByTitle)
+        //Находим имя автора
+        const author = myLibrary.selectionOfBooksByAuthor(author2)
+        console.log(author)
+        //Находим есть ли такая компания
+        const booksByPublishingHouse = myLibrary.booksPublishingHouse('Man&CO')
+        console.log(booksByPublishingHouse)
+        //Поиск по жанру
+        const booksByGenre = myLibrary.selectBookByGenre('Utopia')
+        console.log(booksByGenre)
+
+
+        myLibrary.addSection('Fiction')
+
+        myLibrary.addBookInSection('Fiction', Book1)
+
+        myLibrary.removeBookFromSection('Fiction', Book1)
+
+        myLibrary.removeBook(Book1)
+        // const bookArray = []
+        // bookArray.push(book1)
+        // bookArray.push(book2)
+        // bookArray.push(book3)
+        // class Libarary {
+        //     constructor(array) {
+        //         this.book = [...array]
+        //     }
+        // }
+        // const homeLibarery = new Libarary(bookArray)
+        // console.log(homeLibarery);
+    </script>
+
+</body>
+
+</html>

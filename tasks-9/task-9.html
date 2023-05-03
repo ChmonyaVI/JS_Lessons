@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 9</title>
+</head>
+
+<body>
+    <h1>Task 9</h1>
+
+    <br>
+    <p>
+        Дано масив імен. Сформувати масив з перших літер цих імен.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let arrListNames = ['Саша', 'Алена', 'Дарья', 'Амет', 'Иван', 'Артём', 'Руслан', 'Яков']
+        //2.Знаходимо результат
+        const newArrayFillteredNames = arrListNames.map((item, index, arrRef) => item[0])
+        //3.Виводимо результа
+        document.write(`Список имен в массиве:${arrListNames}<br>Первые буквы имен: ${newArrayFillteredNames}`)
+
+    </script>
+</body>
+
+</html>

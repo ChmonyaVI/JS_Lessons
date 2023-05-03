@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <p>
+        Задача 1.
+        Описати масив об’єктів – сайтів розроблених компанією з такими властивостями<br>
+        ----- Властивості ------<br>
+        - назва компанії на час розробки (назву періодично змінюють)<br>
+        - bвласник компанії<br>
+        - споснсори (масив спонсорів)<br>
+        - прізвище спонсора<br>
+        - ім’я спонсора<br>
+        - сума вкладень спонсора<br>
+        - рік випуску<br>
+        - вартість сайту<br>
+        Знайти:<br>
+        1) загальну вартість усіх сайтів<br>
+        2) кількість сайтів, що було зроблено між 2000 та 2009 рр.<br>
+        3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000<br>
+        4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)<br>
+        5) знайти рік, коли прибуток був найбільшим<br>
+        6) упорядкувати список за спаданням прибутку<br>
+        7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000<br><br>
+
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let newArraySites = [
+            {
+                title: 'Title 0',
+                owner: 'Owner 0',
+                sponsored: [
+                    {
+                        firstName: 'Alex',
+                        secondName: 'Honor',
+                        investSum: 20000,
+                    },
+                    {
+                        firstName: 'James',
+                        secondName: 'Brand',
+                        investSum: 32000,
+                    },
+                    {
+                        firstName: 'Alisa',
+                        secondName: 'Grand',
+                        investSum: 46000,
+                    },
+                ],
+                year: 2005,
+                price: 9000,
+            },
+            {
+                title: 'Title 1',
+                owner: 'Owner 1',
+                sponsored: [
+                    {
+                        firstName: 'Jane',
+                        secondName: 'Black',
+                        investSum: 45000,
+                    },
+                    {
+                        firstName: 'Anna',
+                        secondName: 'Brown',
+                        investSum: 19000,
+                    },
+                    {
+                        firstName: 'David',
+                        secondName: 'Wolf',
+                        investSum: 87000,
+                    },
+                ],
+                year: 2015,
+                price: 119000,
+            },
+            {
+                title: 'Title 2',
+                owner: 'Owner 2',
+                sponsored: [
+                    {
+                        firstName: 'Nicolas',
+                        secondName: 'Cage',
+                        investSum: 110000,
+                    },
+                    {
+                        firstName: 'Rayan',
+                        secondName: 'Gosling',
+                        investSum: 80000,
+                    },
+                    {
+                        firstName: 'John',
+                        secondName: 'Wick',
+                        investSum: 100000,
+                    },
+                ],
+                year: 2007,
+                price: 250000,
+            },
+            {
+                title: 'Title 3',
+                owner: 'Owner 3',
+                sponsored: [
+                    {
+                        firstName: 'Kim',
+                        secondName: 'Bred',
+                        investSum: 6000,
+                    },
+                    {
+                        firstName: 'Santiyago',
+                        secondName: 'Cloms',
+                        investSum: 4000,
+                    },
+                    {
+                        firstName: 'Luis',
+                        secondName: 'Brekford',
+                        investSum: 1200,
+                    },
+                ],
+                year: 2000,
+                price: 185000,
+            }
+        ]
+        console.log(newArraySites);
+
+        //2.Знаходимо результат
+
+        //1) загальну вартість усіх сайтів
+        let totalSum = newArraySites.reduce((acc, site) => acc + site.price, 0)
+        console.log(totalSum);
+
+        //2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+        const totalSumSites2000_2009 = newArraySites.reduce((acc, site) => {
+            if (site.year > 2000 && site.year < 2009) return acc + 1
+            return acc
+        }, 0)
+        console.log(totalSumSites2000_2009);
+        //3)кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+
+        const totalSumSiter_sumSponsored = newArraySites.reduce((acc, site,) => {
+            if (site.sponsored.reduce((acc, sponsored) => acc + sponsored.investSum, 0) > 100000) {
+                return ++acc
+            } return acc
+        }, 0)
+        console.log(totalSumSiter_sumSponsored);
+        //4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+        const listSponsored = []
+        for (const site of newArraySites) {
+            for (const sponsors of site.sponsored) {
+                listSponsored.push(`${sponsors.firstName}, ${sponsors.secondName}`)
+            }
+        }
+        console.log(listSponsored);
+
+        //5) знайти рік, коли прибуток був найбільшим
+        maxPrice = newArraySites[0].price
+        year = newArraySites[0].year
+        for (let i = 1; i < newArraySites.length; i++) {
+            if (maxPrice < newArraySites[i].price) {
+                maxPrice = newArraySites[i].price
+                year = newArraySites[i].year
+            }
+        }
+        console.log(year);
+
+        //6) упорядкувати список за спаданням прибутку
+        let listArrDown = newArraySites.map(site => site.price)
+        let sortedList = JSON.parse(JSON.stringify(listArrDown))
+        for (let i = 0; i < sortedList.length; i++) {
+            let currentElement = listArrDown[i]
+            let currentObject = sortedList[i]
+            let k = i - 1
+            while (k >= 0 && sortedList[k] < currentElement) {
+                listArrDown[k + 1] = listArrDown[k]
+                sortedList[k + 1] = sortedList[k]
+                k--
+            }
+            listArrDown[k + 1] = currentElement
+            sortedList[k + 1] = currentObject
+        }
+        console.log(sortedList);
+
+        //7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+        let before10k = []
+        let after10k = []
+        for (let i = 0; i < newArraySites.length; i++) {
+            if (newArraySites[i].price < 10000) {
+                before10k.push(newArraySites[i])
+            }
+            if (newArraySites[i].price > 10000) {
+                after10k.push(newArraySites[i])
+            }
+        }
+        //3.Виводимо результа
+        console.log(before10k);
+        console.log(after10k);
+    </script>
+</body>
+
+</html>

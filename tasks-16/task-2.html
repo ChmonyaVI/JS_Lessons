@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>
+        Задача 2. Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у вигляді доларового
+        еквіваленту.
+        Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу
+        долара, при
+        якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+
+    </p>
+
+    <script>
+        class TMoney {
+            //Частное поле для курса доллара
+            #dollarCourse
+            //Создаю конструктор
+            constructor(balanceInDollars, dollarCourse) {
+                this.balanceInDollars = balanceInDollars
+                this.DollarCourse = dollarCourse
+            }
+            //Получаем курс доллара
+            get DollarCourse() {
+                return this.#dollarCourse
+            }
+            //Устанавливаем условие, если новое значение меньше 20, то выдаем ошибку
+            set DollarCourse(newValue) {
+                if (newValue < 20) {
+                    throw new Error(`Не правильная сумма!`)
+                } else this.#dollarCourse = newValue
+            }
+            increaseMoney(addValue) {
+                return this.balanceInDollars += addValue / this.DollarCourse
+            }
+            decreaseMoney(lessValue) {
+                const convertMoney = lessValue / this.DollarCourse
+                if (convertMoney <= this.balanceInDollars) return this.balanceInDollars -= convertMoney
+                else alert(`не достаточно средств!`)
+            }
+            get toString() {
+                return `Баланс: ${this.balanceInDollars}. Курс доллара: ${this.DollarCourse}`
+            }
+        }
+        //Начальные значения
+        const tMoney = new TMoney(200, 30)
+        tMoney.toString
+        document.write(`Начальное значение: ${tMoney.toString}<br>`)
+
+        //Изменение счета и курса
+        tMoney.balanceInDollars = 300
+        tMoney.convertMoney = 30
+        document.write(`Изменение баланса и курса: ${tMoney.toString}`)
+
+        //Пополнение
+        let changeBalanceAmount = 3000;
+        tMoney.increaseMoney(changeBalanceAmount)
+        document.write(`<br>Пополняем на 3000 грн. Баланс: ${tMoney.balanceInDollars}`)
+
+        //Снятие денег
+        changeBalanceAmount = 3500;
+        tMoney.decreaseMoney(changeBalanceAmount)
+        document.write(`<br>Снимаем на 3500 грн. Баланс: ${tMoney.balanceInDollars}`)
+
+    </script>
+</body>
+
+</html>

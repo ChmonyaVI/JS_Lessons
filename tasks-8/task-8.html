@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 8</h1>
+
+    <br>
+    <p>
+        Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи
+        заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу
+        можливість вибирати номери елементів (поки він не відмовиться). Знаходити сумарний
+        виграш.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let arrPrizeSum = new Array(10);
+        getFinalArr(arrPrizeSum, -500, 500)
+        //2.Знаходимо результат
+        function randomNumber(minNumber, maxNumber) {
+            return minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+        }
+        function getFinalArr(arr, minNumber, maxNumber) {
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = randomNumber(minNumber, maxNumber)
+            }
+        }
+        function getFinalScore(arr) {
+            let totalSum = 0;
+            let questionsForUser;
+            do {
+                questionsForUser = parseInt(prompt('Введите номер элемента от 1 до 10', '1'))
+                if (questionsForUser >= 1 || questionsForUser <= 10) {
+                    totalSum += arr[questionsForUser - 1]
+                }
+            } while (questionsForUser >= 1 || questionsForUser <= 10);
+            let messageWin = `Вы выиграли ${totalSum}`
+            let messageFail = `Вы проиграли ${totalSum}`
+            return totalSum >= 0 ? messageWin : messageFail
+        }
+        let message = getFinalScore(arrPrizeSum);
+        //3.Виводимо результа
+        document.write(`${message}`)
+
+    </script>
+</body>
+
+</html>

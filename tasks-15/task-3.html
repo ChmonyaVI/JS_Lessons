@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>
+        Задача 2. Створити об’єкт «Авто».
+    </p>
+
+    <script>
+        let auto = {
+            model: 'Audi',
+            tankSize: 60,
+            litersAvailable: 24,
+            numberOfSeat: 5,
+            numberOfPassengers: 2,
+            //====Методы
+            carRefueling: function () {
+                let needLitersForAuto = this.tankSize - this.litersAvailable;
+                if (this.litersAvailable == this.tankSize) {
+                    document.write('Бак полон');
+                }
+                else {
+                    document.write(`Необходимо ${needLitersForAuto} литров до полного бака.`)
+                }
+                return
+            },
+            carShowPassengers: function () {
+                document.write(`Количество пассажиров в машине ${this.numberOfPassengers} человека.`)
+            },
+            carAddPassenger: function (passenger) {
+                let calcPassengers = this.numberOfPassengers + passenger;
+                if (calcPassengers > this.numberOfSeat) {
+                    document.write(`Не возможно поместить ${calcPassengers}  пассажиров в машину, тк количество место в машине ${this.numberOfSeat}.`)
+                } else {
+                    document.write(`${calcPassengers} пассажиров могу сесть в ${this.model}`)
+                }
+            },
+            landingPassengers: function (passenger) {
+                let calcPassengers = this.numberOfPassengers - passenger;
+                if (this.numberOfPassengers < passenger) {
+                    document.write(`В машине нет столько пассажиров!`)
+                }
+                else if (calcPassengers === 0) {
+                    document.write(`В машине нет пассажиров.`)
+                }
+                else { document.write(`Был высажен ${passenger} пассажир, в машине осталось ${calcPassengers}`) }
+
+            }
+        }
+        let test = auto.landingPassengers()
+        console.log(test);
+
+    </script>
+</body>
+
+</html>

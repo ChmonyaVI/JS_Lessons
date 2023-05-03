@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 4</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <p>
+        Склад. База товарів, які зберігаються на складі: назва товару, одиниця виміру, кількість, фірма виробник (назва,
+        реєстраційний номер). Організувати реєстрацію/відвантаження товарів, фільтрація за назвою товару, фільтрація за
+        назвою
+        фірми
+
+    </p>
+
+    <script>
+        class Comapny {
+            constructor(title) {
+                this.title = title
+                this.regNumber = new Date().getTime()
+            }
+            toString() {
+                return `${this.title} - ${this.regNumber}<br>`
+            }
+        }
+        //========================================================================================================================================================
+        class Item {
+            #quantity
+            constructor(title, unit, quantity, companyTitle) {
+                this.title = title
+                this.unit = unit
+                this.Quantity = quantity
+                this.comapny = new Comapny(companyTitle)
+            }
+            get Quantity() {
+                return this.#quantity
+            }
+            set Quantity(value) {
+                if (value < 0) throw new Error('Incorrect quantity value')
+                this.#quantity = value
+            }
+            toString() {
+                return `${this.title}, ${this.Quantity}${this.unit}, ${this.comapny}<br>`
+            }
+        }
+        //========================================================================================================================================================
+
+        class Warehouse {
+            constructor() {
+                this.productsList = []
+            }
+            registerProduct(product) {
+                this.productsList.push(product)
+            }
+            productShipment(title, value) {
+                this.productsList.find(element => element.title === title).Quantity -= value
+            }
+            filterProductTitle(title) {
+                let filtredProductsList = this.productsList.filter(
+                    element => element.title === title
+                )
+                return filtredProductsList
+            }
+            filterMakerTitle(title) {
+                let filtredProductsList = this.productsList.filter(
+                    element => element.comapny.title === title
+                )
+                return filtredProductsList
+            }
+            toString() {
+                return `${this.productsList.map(element => element.toString())}`
+            }
+        }
+
+        let test1 = new Warehouse()
+        test1.registerProduct(new Item('Iphone', 'шт', 500, 'Apple'))
+        test1.registerProduct(new Item('TV', 'шт', 1000, 'LG'))
+        test1.registerProduct(new Item('PC', 'шт', 600, 'Aquamarin'))
+        console.log(test1)
+
+        test1.productShipment('Iphone', 500)
+        console.log(test1.filterProductTitle('TV'))
+        console.log(test1.filterMakerTitle('Aquamarin'))
+        document.write(test1)
+    </script>
+
+</body>
+
+</html>

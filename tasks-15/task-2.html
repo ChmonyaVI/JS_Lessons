@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>
+        Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому
+        випадку.
+    </p>
+
+    <script>
+        shootingField = {
+            field: [0, 1, 0, 0, 1],
+            shootFunction: function () {
+                let count = 0
+                for (let k = 0; k < this.field.length; k++) {
+                    if (this.field[k] == 1) count += 1
+                }
+                for (let i = 0; i <= count; i++) {
+                    let shot = parseInt(prompt(`В поле ${count} зайца, выберите мишень от 1 до 5`))
+                    if (this.field[shot - 1]) {
+                        this.field[shot - 1] = 0
+                        count--
+                    }
+                    else alert(`Вы не попали, осталось ${count} выстрелов!`)
+                }
+                return count == 0 ? alert('Вы победили!') : alert('Вы проиграли!')
+            },
+            showField: function () {
+                document.write('Поле тира </br>')
+                document.write('<table>')
+                for (let i = 0; i < this.field.length; i++) {
+                    document.write('<tr>')
+                    document.write(`${this.field[i]}`)
+                    document.write('</tr>')
+                }
+                document.write('</table>')
+            }
+        }
+        let test = shootingField.showField()
+        console.log(test);
+
+    </script>
+</body>
+
+</html>

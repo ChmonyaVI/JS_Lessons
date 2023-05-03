@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>
+        Задача 2. Нехай , де . Визначити . Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+
+
+        //2.Знаходимо результат
+        function firstRecurs(i) {
+            if (i === 0 || i === 1) return 1
+            else {
+                let x_zero = 1
+                let x_one = 1
+                let tmp = 0
+                for (let j = 2; j <= i; j++) {
+                    tmp = x_zero + (2 * x_one)
+                    x_one = x_zero
+                    x_zero = tmp
+                }
+                return tmp
+            }
+        }
+        let givenNumber = firstRecurs(5)
+        document.write(`${givenNumber}`)
+        //3.Виводимо результа
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <br>
+    <p>
+        Створити функцію, яка за номером місяця повертає його назву.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+
+        //2.Знаходимо результат
+        let choosenMontns = function (months) {
+            let result;
+            switch (months) {
+                case 1:
+                    result = "Январь"
+                    break;
+                case 2:
+                    result = "Февраль"
+                    break;
+                case 3:
+                    result = "Март"
+                    break;
+                case 4:
+                    result = "Апрель"
+                    break;
+                case 5:
+                    result = "Май"
+                    break;
+                case 6:
+                    result = "Июнь"
+                    break;
+                case 7:
+                    result = "Июль"
+                    break;
+                case 8:
+                    result = "Август"
+                    break;
+                case 9:
+                    result = "Сентябрь"
+                    break;
+                case 10:
+                    result = "Октябрь"
+                    break;
+                case 11:
+                    result = "Ноябрь"
+                    break;
+                case 12:
+                    result = "Декабрь"
+                    break;
+                default:
+                    result = 'Error'
+                    break
+            }
+            return result
+        }
+        //3.Виводимо результа
+        const numberMonth = parseInt(prompt(`Введите номер месяца.`));
+        let message = choosenMontns(numberMonth);
+        document.write(`${message}`);
+    </script>
+</body>
+
+</html>

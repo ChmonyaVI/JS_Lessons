@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <br>
+    З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у
+    якої кількість цукерок є більшою, або вивести, що кількість однакова.
+    <br>
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let firstNameChild = prompt('Веддите первое имя ребенка:', 'Ivan');
+        let secodnNameChild = prompt('Веддите второе имя ребенка:', 'Anton');
+        let candyForFirstChild = parseFloat(prompt('Веддите количество конфет для первого ребенка', '0'));
+        let candyForSecondChild = parseFloat(prompt('Веддите количество конфет для второго ребенка', '0'));
+        //2.Знаходимо результат
+        if (candyForFirstChild > candyForSecondChild) {
+            document.write(`У ${firstNameChild} больше конфет чем у ${secodnNameChild}.`)
+        }
+        else if (candyForFirstChild < candyForSecondChild) {
+            document.write(`У ${secodnNameChild} больше конфет чем у ${firstNameChild}.`)
+        }
+        else if (candyForFirstChild == candyForSecondChild) {
+            document.write(`У ${secodnNameChild} и ${firstNameChild} одинаковое количество конфет.`)
+        }
+        //3.Виводимо результа
+        document.write(`
+             `)
+    </script>
+</body>
+
+</html>

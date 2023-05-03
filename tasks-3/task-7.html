@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 7</h1>
+    <br>
+    <p>З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься</p>
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let numberMonth = parseInt(prompt('Веддите номер месяца', '0'));
+        //2.Знаходимо результат
+        switch (numberMonth) {
+            case 1: result = "Январь - зима"
+                break;
+            case 2: result = "Февраль - зима"
+                break;
+            case 3: result = "Март - весна"
+                break;
+            case 4: result = "Апрель - весна"
+                break;
+            case 5: result = "Май - весна"
+                break;
+            case 6: result = "Июнь - лето"
+                break;
+            case 7: result = "Июль - лето"
+                break;
+            case 8: result = "Август - лето"
+                break;
+            case 9: result = "Сентябрь - осень"
+                break;
+            case 10: result = "Октябрь - осень"
+                break;
+            case 11: result = "Ноябрь - осень"
+                break;
+            case 12: result = "Декабрь - зима"
+                break;
+            default: result = "Существует только 12 месяцев."
+        }
+
+        //3.Виводимо результа
+        document.write(`${result}`)
+    </script>
+</body>
+
+</html>

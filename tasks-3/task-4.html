@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <br>
+    З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником,
+    пенсіонером).
+    <br> <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let old = parseInt(prompt('Введите возраст человека, чтобы узнать кто он:', '0'));
+        if (old <= 6 && old >= 1) {
+            document.write(`Он ребенок, который ходит в детсад!`)
+        } else if (old > 7 && old < 17) {
+            document.write(`Он школьник!`)
+        } else if (old > 18 && old < 24) {
+            document.write(`Он студент`)
+        } else if (old > 25 && old < 62) {
+            document.write(`Он работник или фрилансер`)
+        } else if (old > 64 && old < 99) {
+            document.write(`Он пенсионер`)
+        } else if (old > 100) {
+            document.write(`Он эльф"`)
+        } else if (old < 0) {
+            document.write(`Человек ещё не родился`)
+        }
+
+
+
+
+
+
+        //2.Знаходимо результат
+
+
+        //3.Виводимо результа
+        document.write(``)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <br>
+    З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на
+    екран назву транспортного засобу, яким він може керувати.
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let category = prompt('Веддите автомобиля:', 'A');
+        let result;
+        //2.Знаходимо результат
+        switch (category) {
+            case "A": result = "Категория для мотоциклистовю"
+                break;
+            case "A1": result = "Категория для мотоциклистовю с большим объемом двигателя"
+                break;
+            case "B": result = "Категория для автомобилистов."
+                break;
+            case "C": result = "Категория для легковых грузовых авто."
+                break;
+            case "D": result = "Категория для автобусов."
+                break;
+            case "BE": result = "Категория для автомобилей с прицепом."
+                break;
+            case "CE": result = "Категория для тяжелых грузовых авто."
+                break;
+            default:
+                result = "Данной категории нет."
+        }
+        //3.Виводимо результа
+        document.write(`${result}`)
+    </script>
+</body>
+
+</html>

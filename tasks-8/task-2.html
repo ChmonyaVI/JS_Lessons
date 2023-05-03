@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <br>
+    <p>
+        Дано масив, який зберігає кількість відвідувачів магазину протягом тижня.
+        Вивести на екран: <br>
+         номери днів, протягом яких кількість відвідувачів була меншою за 20;<br>
+         номери днів, коли кількість відвідувачів була мінімальною;<br>
+         номери днів, коли кількість відвідувачів була максимум;<br>
+         загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на
+        вихідних.<br>
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        const WEEK = 7;
+        let arrQuantityVisitors = []
+        let quantityVisitors = function (WEEK) {
+            for (let i = 1; i <= WEEK; i++) {
+                let questionOfNumber = parseInt(prompt(`Введите количество посетителей за ${i} день.`, '2'))
+                arrQuantityVisitors.push(questionOfNumber)
+            }
+            return arrQuantityVisitors
+        }
+        let infoAboutWeek = quantityVisitors(WEEK)
+        console.log(infoAboutWeek);
+
+        //Дни когда посетителей меньше 20 человек
+        let firstFunctionPoint = function (infoAboutWeek) {
+            let result = [];
+            for (let i = 0; i <= infoAboutWeek.length; i++) {
+                if (infoAboutWeek[i] < 20)
+                    result.push(i);
+            }
+            return result;
+        }
+        let massageTWenty = firstFunctionPoint(infoAboutWeek);
+        //Минимальное количество посетителей
+        console.log(infoAboutWeek);
+        function getFunctionMinVisitors(infoAboutWeek) {
+            let minVisitors = arrQuantityVisitors[0];
+            for (let i = 0; i <= arrQuantityVisitors.length; i++) {
+                if ((arrQuantityVisitors[i]) < minVisitors) {
+                    minVisitors = arrQuantityVisitors[i];
+                }
+            }
+            return minVisitors;
+        }
+        let messageMinVisitors = getFunctionMinVisitors(infoAboutWeek);
+
+        //Максимальное количество посетителей
+        function getFunctionMaxVisitors(infoAboutWeek) {
+            let maxVisitors = arrQuantityVisitors[0];
+            for (let i = 0; i <= arrQuantityVisitors.length; i++) {
+                if ((arrQuantityVisitors[i]) > maxVisitors) {
+                    maxVisitors = arrQuantityVisitors[i];
+                }
+            }
+            return maxVisitors;
+        }
+        let messageMaxVisitors = getFunctionMaxVisitors(infoAboutWeek);
+
+        //Посетители за рабочие дни
+        function getFunctionWorkDay(infoAboutWeek) {
+            let totalWorkDay = 0;
+            for (let i = 0; i <= 4; i++) {
+                totalWorkDay += infoAboutWeek[i]
+            }
+            return totalWorkDay;
+        }
+        let messageWorkDay = getFunctionWorkDay(infoAboutWeek);
+
+        //Посетители за выходные
+        function getFunctionHolidayDay(infoAboutWeek) {
+            let totalHolidayDay = 0;
+            for (let i = 5; i <= 6; i++) {
+                totalHolidayDay += infoAboutWeek[i]
+            }
+            return totalHolidayDay;
+        }
+        let messageHoliday = getFunctionHolidayDay(infoAboutWeek)
+
+        //Общее количесвто посетителей
+        function sumVisitors(infoAboutWeek) {
+            let totalVisitors = 0;
+            for (let l = 0; l < infoAboutWeek.length; l++) {
+                totalVisitors += infoAboutWeek[l]
+            }
+            return totalVisitors
+        }
+        let messageSumVisitors = sumVisitors(infoAboutWeek)
+        //2.Знаходимо результат
+
+        //3.Виводимо результа
+
+        document.write(`Всего посетителей за неделю составляет ${messageSumVisitors}.<br>Номера дней когда посетителей было меньше двадцати: ${massageTWenty}.<br>`);
+        document.write(`Минимальное количество посетителей составляет${messageMinVisitors}.<br>Масимальное количество посетителей составляет ${messageMaxVisitors}.<br>`)
+        document.write(`Общее количество посетителей за рабочие дни составляет: ${messageWorkDay}.<br>Общее количество посетителей за выхдные дни составляет: ${messageHoliday}.<br>`)
+    </script>
+</body>
+
+</html>

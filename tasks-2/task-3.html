@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 3. Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
+    </h1>
+    <script>
+        //1.Вводимо необхідні дані
+        let item1 = parseFloat(prompt('Веддите стоимость товара', '0'));
+        let item2 = parseFloat(prompt('Веддите количество товара', '0'));
+        const tax = parseFloat(prompt('Веддите процент налога', '0'));
+
+        //2.Знаходимо результат
+        let result1 = (item1 * item2).toFixed(2);
+        let result2 = (result1 / 100 * (100 - tax)).toFixed(2);
+
+        //3.Виводимо результа
+        document.write(`
+        Общая стоимость = ${result1} <br>
+        После налога = ${result2} 
+        `)
+    </script>
+</body>
+
+</html>

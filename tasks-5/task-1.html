@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <br>
+    Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел вводиться
+    користувачем.
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        const minNumber = 1;
+        const maxNumber = 100;
+        let randomNumber;
+        let userNumber = parseInt(prompt('Введите количество списка случайных чисел', '0'));
+        //2.Знаходимо результат
+        document.write(`<ul>`)
+        for (let i = 0; i < userNumber; i++) {
+            randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+            document.write(`<li>${randomNumber}</li>`)
+        }
+        document.write(`<ul>`)
+
+        //3.Виводимо результа
+        document.write(`
+             `)
+    </script>
+</body>
+
+</html>

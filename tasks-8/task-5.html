@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <br>
+    <p>
+        Дано послідовність оцінок учня. Підрахувати кількість:<br>
+        1) двійок<br>
+        2) кількість хороших оцінок (добре, відмінно);<br>
+        3) кількість оцінок, які нижче середнього.<br>
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let arr = [2, 3, 5, 5, 3, 4, 2, 3]
+        //2.Знаходимо результат
+        //Находим количество двоек
+        function badRatings(arr) {
+            let counterBadRating = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == 2)
+                    counterBadRating++;
+            } return counterBadRating;
+        }
+        let messagBadRating = badRatings(arr);
+
+        //Находим количество хороших оценок
+        function goodRatings(arr) {
+            let counterGoodRating = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] >= 3)
+                    counterGoodRating++;
+            } return counterGoodRating;
+        }
+        let messageGoodRating = goodRatings(arr)
+        //Определение средней оценки
+        function midlRatings(arr) {
+            let counter = 0;
+            let sumMidlRating = 0;
+            let counterMoreMidl = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sumMidlRating += arr[i]
+                counter++;
+            }
+            sumMidlRating /= counter;
+            document.write(`Средний бал ${sumMidlRating}<br>`)
+            console.log(sumMidlRating);
+            for (let b = 0; b < arr.length; b++) {
+                if (arr[b] > sumMidlRating)
+                    counterMoreMidl++;
+            }
+            return counterMoreMidl;
+        }
+        let messageMidlRating = midlRatings(arr)
+        console.log(messageMidlRating);
+        //3.Виводимо результа
+        document.write(`Количество двоек составляет ${messagBadRating} штук.<br>`)
+        document.write(`Количество удовлетворительных и хороших оценок составляет ${messageGoodRating} штук.<br>`)
+        document.write(`Количество оценок выше среднего составляет ${messageMidlRating} штук.`)
+
+    </script>
+</body>
+
+</html>

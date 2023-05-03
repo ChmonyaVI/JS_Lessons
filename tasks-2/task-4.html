@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task </h1>
+
+    <p>
+        Задача 3. Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let length = parseInt(prompt('Веддите длинну в сантиметрах a', '0'));
+
+        //2.Знаходимо результат
+        let lengthSm = length / 100;
+        let lengthKm = length / 1000;
+
+        //3.Виводимо результа
+        document.write(`
+        s1 = ${length} см равен ${lengthSm} метров </br>
+        s2 = ${length} см равен ${lengthKm} километров`)
+    </script>
+</body>
+
+</html>

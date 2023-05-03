@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <br>
+    <p>
+        Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+        додатних, кількість більших за 100.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let columnsNumber = parseFloat(prompt("Введите количество столбцов", '4'));
+        let rowsNumber = parseFloat(prompt("Введите количество строк", '4'));
+        document.write(`Количество указаных столбцов равна ${columnsNumber}<br>Количество указаных строк равна ${rowsNumber}<br>`)
+        //2.Знаходимо результат
+
+        function createTable(columnsNumber, rowsNumber, message = 'Текст') {
+            document.write('<br><table border=2>')
+            for (let row = 0; row < rowsNumber; row++) {
+                document.write('<tr>')
+                for (let column = 0; column < columnsNumber; column++) {
+                    document.write(`<td>${message}</td>`)
+                }
+                document.write('</tr>')
+            }
+            document.write('</table>')
+        }
+        //3.Виводимо результа
+
+        let messageFirst = createTable(columnsNumber, rowsNumber, message = 'Текст');
+    </script>
+</body>
+
+</html>

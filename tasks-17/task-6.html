@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 6</title>
+</head>
+
+<body>
+    <h1>Task 6</h1>
+
+    <p>
+        Дано два класи MultChecker (клас для перевірки таблиці множення - рандомно генеруються числа, які треба
+        перемножати),
+        AddChecker (клас для перевірки додавання - рандомно генеруються числа у заданому діапазоні, які треба додавати).
+        Обидва
+        класи надсилають результати тестування об'єкту класу Hystory, який зберігає історію тестування у масиві у
+        вигляді
+        об'єктів
+        Приклад.
+        testsList= [
+        {firstNum:1, secondNum:5,opration:’*’, userAnswer:7, correctAnswer:5},
+        {firstNum:3, secondNum:4,opration:’+’, userAnswer:7, correctAnswer:7},
+        ]
+        Можна створити окремий клас TestData, який описує один такий тест і у якому будуть ці поля.
+        Розробити клас TestManager, який використовуючи ці класи за допомогою таймера періодично генерує якісь N задач
+        (рандомно
+        вибираємо, що опитувати: додавання чи множення) і проводить опитування. Результати тестування додаються в об’єкт
+        History. Зробити так, щоб об'єкт такого класу можна було створити тільки один. Коли зроблено ці N задач вивести
+        усю
+        історію на екран.
+    </p>
+
+    <script>
+        //Генерируем 2 рандомных числа и перемножаем их
+        class MultChecker {
+            constructor(minNumber = 1, maxNumber = 10) {
+                this.minNumber = minNumber
+                this.maxNumber = maxNumber
+            }
+            getRandomNumber() { return this.minNumber + Math.floor(Math.random() * (this.maxNumber - this.minNumber + 1)) }
+
+            Multiplication() {
+                let num1 = this.getRandomNumber()
+                let num2 = this.getRandomNumber()
+                let multResult = num1 * num2
+                let answer = prompt(`${num1}*${num2}=?`)
+                return [num1, num2, '*', answer, multResult]
+            }
+        }
+        //Генерирует 2 рандомных числа, которые нужно перемножить
+        class AddChecker {
+            constructor(minNumber = 1, maxNumber = 10) {
+                this.minNumber = minNumber
+                this.maxNumber = maxNumber
+            }
+            getRandomNumber() { return this.minNumber + Math.floor(Math.random() * (this.maxNumber - this.minNumber + 1)) }
+
+            SumResult() {
+                let num1 = this.getRandomNumber()
+                let num2 = this.getRandomNumber()
+                let sumResult = num1 + num2
+                let answer = prompt(`${num1}+${num2}=?`)
+                return [num1, num2, '+', answer, sumResult]
+            }
+        }
+        //
+        class TestData {
+            constructor(arr) {
+                this.num1 = arr[0]
+                this.num2 = arr[1]
+                this.operation = arr[2]
+                this.answer = arr[3]
+                this.result = arr[4]
+            }
+        }
+        //Генерирует один из двух примеров, или MultChechker или AddChecker
+        class TestManager {
+            static TestManagerRef
+            constructor(numberTest, interval) {
+                if (TestManager.TestManagerRef) {
+                    return TestManager.TestManagerRef
+                }
+                this.numberTest = numberTest
+                this.interval = interval
+                this.history = new History()
+                TestManager.TestManagerRef = this
+            }
+            //Выбирает или первый пример или второй
+            getRandomNumber() {
+                return (1 + Math.floor(Math.random() * (2 - 1 + 1)))
+            }
+            runTests() {
+                let counter = 0
+                let intervalID = setInterval(() => {
+                    let testT = this.getRandomNumber()
+                    let testData
+                    if (testT === 1)
+                        testData = new TestData(new MultChecker().Multiplication())
+                    else testData = new TestData(new AddChecker().SumResult())
+                    this.history.addTest(testData)
+                    counter++
+                    if (counter === this.numberTest) {
+                        clearInterval(intervalID)
+                        this.history.showHistory()
+                    }
+                }, this.interval)
+            }
+        }
+        //Создает массив, в котором сохраняет пример из MultCheker и AddCheker
+        class History {
+            constructor() {
+                this.testList = []
+            }
+            addTest(testData) {
+                this.testList.push(testData)
+            }
+            showHistory() {
+                console.log(this.testList)
+            }
+        }
+        const test1 = new TestManager(10, 1000)
+        test1.runTests()
+    </script>
+
+</body>
+
+</html>

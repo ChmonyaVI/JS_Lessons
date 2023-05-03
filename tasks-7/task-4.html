@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <br>
+    <p>
+        Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+        додатних, кількість більших за 100.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let fisrtVariable = parseFloat(prompt("Введите первую переменную", '1'));
+        let secondVariable = parseFloat(prompt("Введите вторую переменную", '2'));
+        let thirdVariable = parseFloat(prompt("Введите третью переменную", '3'));
+
+
+        //2.Знаходимо результат
+        let mainFunction = function (fisrtVariable, secondVariable, thirdVariable) {
+            let firstCheck = 0; let secondCheck = 0; let thirdCheck = 0;
+            if (fisrtVariable % 2 == 0) firstCheck++;
+            if (secondVariable % 2 == 0) firstCheck++;
+            if (thirdVariable % 2 == 0) firstCheck++;
+
+            if (fisrtVariable > 0) secondCheck++;
+            if (secondVariable > 0) secondCheck++;
+            if (thirdVariable > 0) secondCheck++;
+
+            if (fisrtVariable > 100) thirdCheck++;
+            if (secondVariable > 100) thirdCheck++;
+            if (thirdVariable > 100) thirdCheck++;
+            return `Количество четных чисел равна: ${firstCheck}<br> Количесто чисел больше нуля: ${secondCheck}<br> Количество чисел больше ста: ${thirdCheck}`
+        };
+
+        //3.Виводимо результа
+        let messageFirst = mainFunction(fisrtVariable, secondVariable, thirdVariable);
+        document.write(`${messageFirst}`);
+
+
+    </script>
+</body>
+
+</html>

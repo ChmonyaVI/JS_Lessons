@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 9</h1>
+
+    <br>
+    Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm). <br>
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let minNumber = parseInt(prompt('Ведите число начала диапазона', '0'));
+        let maxNumber = parseInt(prompt('Ведите число конца диапазона', '10'));
+        //2.Знаходимо результат
+        for (let i = 0; i < 3;) {
+            let randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+            let confirmUser = window.confirm(`Число которое вы загадали это ${randomNumber}?`);
+            if (confirmUser) {
+                document.write("Компьютер угдал!")
+                break;
+            }
+            if (i === 2) {
+                document.write(`Компьютер не угадал число!`)
+            }
+        }
+        //3.Виводимо результа
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <br>
+    <p>
+        Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :<br>
+        • починаються на букву «А»;<br>
+        • перша і остання літери співпадають;<br>
+        • складаються з більше ніш 5 символів;<br>
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let arrNames = ['AK9265AK', 'AB2245AK', 'HB9265DH', 'BH1262HH', 'AK9265AA', '5AA', 'AK9']
+        //2.Знаходимо результат
+
+        //Определяем первую букву в номере и смотрим сколько есть совпадений
+        function matchFirstLetter(arrFirst) {
+            let counterMatchLetter = 0;
+            for (let i = 0; i < arrFirst.length; i++) {
+                let firstElement = arrFirst[i]
+                if (firstElement[0] == 'A')
+                    counterMatchLetter++
+            } return counterMatchLetter;
+        }
+        let message = matchFirstLetter(arrNames);
+
+        //Определяем совпадение первой и последней буквы
+        function matchFirstLastLetter(arrFirst) {
+            let counterMatchLetter = 0;
+            for (let i = 0; i < arrFirst.length; i++) {
+                let firstElement = arrFirst[i]
+                if (firstElement[0] === firstElement[7])
+                    counterMatchLetter++
+            } return counterMatchLetter;
+        }
+        let messageSecond = matchFirstLastLetter(arrNames);
+
+        //Определяем длинну номеров в масиве
+        function matchLength(arrFirst) {
+            let counterLenght = 0;
+            for (let i = 0; i < arrFirst.length; i++) {
+                let firstElement = arrFirst[i]
+                if (firstElement.length > 5)
+                    counterLenght++
+            } return counterLenght;
+        }
+        let messageThird = matchLength(arrNames);
+
+        //3.Виводимо результа
+        document.write(`Первая буква А встречается в масиве ${message} раза.<br>`)
+        document.write(`Совпадение первой и последней буквы встречается в масиве ${message} раза.<br>`)
+        document.write(`Количество номеров, с числом символо больше 5, составляет ${messageThird}.`)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2. Дано інформацію про прибуток К магазинів протягом тижня. Знайти :</h1>
+
+    <script>
+        //1.Вводимо необхідні дані
+        const lenghtArray = 7;
+        const minNumber = 0;
+        const maxNumber = 300;
+        let rowsNumber = 7;
+        let columnsNumber = 7;
+        function getRandomMoney(minNumber, maxNumber) {
+            return minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+        }
+        //========================================================================================================================================================
+        function getSumForWeek(lenghtArray, maxNumber, maxNumber) {
+            const arrayWeek = []
+            for (let i = 0; i < lenghtArray; i++) {
+                const randomNumber = getRandomMoney(minNumber, maxNumber)
+                arrayWeek.push(randomNumber)
+            }
+            return arrayWeek
+        }
+        let array = getSumForWeek(lenghtArray, maxNumber, maxNumber)
+        //console.log(array);
+        //========================================================================================================================================================
+        function getTwoDimensionalArray(rowsNumber, columnsNumber, minNumber, maxNumber) {
+            const twoDimensionalArray = []
+            for (let i = 0; i < rowsNumber; i++) {
+                const randomRow = getSumForWeek(columnsNumber, maxNumber, maxNumber)
+                twoDimensionalArray.push(randomRow)
+            }
+            return twoDimensionalArray
+        }
+        let randomArrayWeeks = getTwoDimensionalArray(rowsNumber, columnsNumber, minNumber, maxNumber)
+        console.log(randomArrayWeeks);
+        //========================================================================================================================================================
+        //2.Знаходимо результат
+        document.write('1) Загальний прибуток кожного масиву за тиждень;</br><br>')
+        for (let rowIndex = 0; rowIndex < 7; rowIndex++) {
+            let sumWeek = 0;
+            let totalSum = 0;
+            for (let columnIndex = 0; columnIndex < 7; columnIndex++) {
+                sumWeek += randomArrayWeeks[rowIndex][columnIndex]
+            }
+            totalSum = sumWeek
+            document.write(`Cумма за ${rowIndex + 1}: ${totalSum}<br>`)
+        }
+        //========================================================================================================================================================
+        document.write('загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);<br><br>')
+        function totalSum(randomArrayWeeks) {
+            let totalSumSreda = 0;
+            for (let rowNumber = 0; rowNumber < randomArrayWeeks.length; rowNumber++) {
+                for (let columnNumber = 2; columnNumber < 3; columnNumber++) {
+                    totalSumSreda += randomArrayWeeks[rowNumber][columnNumber]
+                }
+            }
+            return totalSumSreda
+        }
+        let totalSumMagazin = totalSum(randomArrayWeeks)
+        document.write(`2) Общая сумма за среду (3 день) составляет ${totalSumMagazin}<br>`)
+        //========================================================================================================================================================
+        //Рабочие дни сумма        
+        function totalForWorkDays(randomArrayWeeks) {
+            let totalSum1 = 0;
+            for (let i = 0; i < randomArrayWeeks.length; i++) {
+                for (let j = 0; j < 5; j++) {
+                    totalSum1 += randomArrayWeeks[i][j]
+                }
+            }
+            return totalSum1
+        }
+        let workDay = totalForWorkDays(randomArrayWeeks)
+        document.write(`3) Загальний прибуток за робочі дні: ${workDay}<br>`)
+        //========================================================================================================================================================
+        //Выходные дни сумма      
+        function totalForweekendDays(randomArrayWeeks) {
+            let totalSum1 = 0;
+            for (let i = 0; i < randomArrayWeeks.length; i++) {
+                for (let j = 5; j < 7; j++) {
+                    totalSum1 += randomArrayWeeks[i][j]
+                }
+            }
+            return totalSum1
+        }
+        let weekendDay = totalForweekendDays(randomArrayWeeks)
+        document.write(`4) Загальний прибуток за вихідні дні ${weekendDay}<br>`)
+        //========================================================================================================================================================
+        function maxAverage(randomArrayWeeks) {
+            let max = randomArrayWeeks[0][2]
+            for (let i = 0; i < randomArrayWeeks.length; i++) {
+                const element = randomArrayWeeks[i][2];
+                if (element > max) max = element
+            }
+            document.write(`5) Максимальная прибыль за среду составляет: ${max}<br>`)
+        }
+        let maxAverage1 = maxAverage(randomArrayWeeks)
+        //========================================================================================================================================================
+        function getMoreThan200(randomArrayWeeks) {
+            let getArrayListMoreThan200 = [];
+            for (let rowsNumber = 0; rowsNumber < randomArrayWeeks.length; rowsNumber++) {
+                for (let columsNumber = 0; columsNumber < randomArrayWeeks.length; columsNumber++) {
+                    if (randomArrayWeeks[rowsNumber][columsNumber] >= 200) getArrayListMoreThan200.push(randomArrayWeeks[rowsNumber][columsNumber]);
+                }
+            }
+            return getArrayListMoreThan200
+        }
+        let arrListMoreThan200 = getMoreThan200(randomArrayWeeks);
+        document.write(`6) Список сумм больших за 200: ${arrListMoreThan200.join(', ')}.<br>`)
+        //========================================================================================================================================================
+        document.write(`7) Отсортировать каждую неделю по росту<br>`)
+        for (let shopIndex = 0; shopIndex < randomArrayWeeks.length; shopIndex++) {
+            let arrayOfPrice = [];
+            for (let ShopSumPayIndex = 0;
+                ShopSumPayIndex < randomArrayWeeks[shopIndex].length;
+                ShopSumPayIndex++) {
+                arrayOfPrice.push(randomArrayWeeks[shopIndex][ShopSumPayIndex])
+            }
+            arrayOfPrice.sort((element1, element2) => element1 - element2)
+
+            document.write(` Выручка магазина №${shopIndex + 1} за неделю по возрастанию составляет : ${arrayOfPrice}<br>`)
+        }
+        //========================================================================================================================================================
+        document.write(`8) відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків<br>`)
+        let getArrayFoMaxPrice = randomArrayWeeks.sort((element1, element2) => Math.max(...element2) - Math.max(...element1));
+        document.write(`Ответ: ${getArrayFoMaxPrice}<br>`)
+        //========================================================================================================================================================
+        function getArrSum(randomArrayWeeks) {
+            let sumTotal = 0;
+            for (let days = 0; days < randomArrayWeeks.length; days++) {
+                sumTotal += randomArrayWeeks[days]
+            }
+            return sumTotal
+        }
+        let arrOfMaxSum = randomArrayWeeks.sort((element1, element2) =>
+            getArrSum(element2) - getArrSum(element1))
+        // console.log(getProfitStore);
+        document.write(`9) Отсортированная сумма массивов: ${arrOfMaxSum}<br>`)
+//========================================================================================================================================================
+    </script>
+</body>
+
+</html>

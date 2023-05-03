@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 16</h1>
+
+    <br>
+    Користувач поступово вводить прибуток магазину за кожен день протягом N тижнів. Знайти загальну величину прибутку та
+    вивести величину прибутку протягом кожного окремого тижня.
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані  
+        let fisrtWeek = 0;
+        let secondWeek = 0;
+        let thirdWeek = 0;
+        let fourWeek = 0;
+        let numberWeek = 1;
+        let numberDay = 1;
+        let allResult = 0;
+        let minNumber = 1;
+        let maxNumber = 10;
+
+        //2.Знаходимо результат
+        for (numberWeek = 1; numberWeek <= 4; numberWeek++) {
+            fisrtWeek = 0;
+            for (let numberDay = 1; numberDay <= 7; numberDay++) {
+                let randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+                let daysSum = parseInt(prompt(`Введите сумму прибыли за ${numberDay} день ${numberWeek} недели.`, `${randomNumber}`))
+                fisrtWeek += daysSum;
+            }
+            document.write(`Сумма прибыли за ${numberWeek} неделю составляет ${fisrtWeek} гривень.</br>`)
+            allResult += fisrtWeek;
+        }
+        document.write(`Общая сумма составляет ${allResult} гривень`)
+        //3.Виводимо результа
+        //
+
+    </script>
+</body>
+
+</html>

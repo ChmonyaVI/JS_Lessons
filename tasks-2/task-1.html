@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 1. Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці.</h1>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let a = parseInt(prompt('Веддите переменную a', '0'));
+        let b = parseInt(prompt('Веддите переменную b', '0'));
+
+        //2.Знаходимо результат
+        let result1 = a + b;
+        let result2 = Math.round(a * b * 100) / 100;
+        let result3 = Math.round(a / b * 100) / 100;
+
+
+        //3.Виводимо результа
+        document.write(`<table border="2.5">
+        <tbody>
+				<tr>
+					<td>Задача №1: Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці</td>
+				</tr>
+				<tr>
+					<td>Начальное значение:</td>
+					<td>Константа a: ${a} --- Константа b: ${b}</td>
+				</tr>
+				<tr>
+					<td>Сумма:</td>
+					<td>${result1}</td>
+				</tr>
+				<tr>
+					<td>Произведение:</td>
+					<td>${result2}</td>
+				</tr>
+				<tr>
+					<td>Остаток:</td>
+					<td>${result3}</td>
+				</tr>
+            </tbody>
+			</table>
+       `)
+    </script>
+</body>
+
+</html>

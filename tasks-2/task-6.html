@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task </h1>
+
+    <p>
+        Задача 6. клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного
+        товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let item1 = parseInt(prompt('Веддите количество первого товара', '0'));
+        let price1 = parseInt(prompt('Веддите цену первого товара', '0'));
+        let item2 = parseInt(prompt('Веддите количество второго товара', '0'));
+        let price2 = parseInt(prompt('Веддите цену второго товара', '0'));
+        let item3 = parseInt(prompt('Веддите количество третьего товара', '0'));
+        let price3 = parseInt(prompt('Веддите цену третьего товара', '0'));
+
+        //2.Знаходимо результат
+        let result1 = item1 * price1;
+        let result2 = item2 * price2;
+        let result3 = item3 * price3;
+        let resultAll = result1 + result2 + result3;
+
+        //3.Виводимо результа
+        document.write(`<table border="2.5">
+        <tbody>
+            <tr>
+                <td>Наименование</td>
+                <td>Цена</td>
+                <td>Количество</td>
+                <td>Сумма</td>
+            </tr>
+            <tr>
+                <td>Товар 2</td>
+                <td>${price1}</td>
+                <td>${item1}</td>
+                <td>${result1}</td>
+            </tr>
+            <tr>
+                <td>Товар 3</td>
+                <td>${price2}</td>
+                <td>${item2}</td>
+                <td>${result2}</td>
+            </tr>
+            <tr>
+                <td>Товар 3</td>
+                <td>${price3}</td>
+                <td>${item3}</td>
+                <td>${result3}</td>
+            </tr>
+            <tr>
+                <td>Сумма всех товаров</td>
+                <td>${resultAll}</td>
+            </tr>
+        </tbody>
+    </table>`)
+    </script>
+</body>
+
+</html>

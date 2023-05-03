@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 12</h1>
+
+    <br>
+    Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох
+    зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200,
+    три
+    третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані  
+        let orange = 0;
+        let apple = 0;
+        let lemon = 0;
+        let cherry = 0;
+        let win;
+        let fruit;
+
+
+        //2.Знаходимо результат     
+        for (let i = 0; i < 3; i++) {
+            let randomNumber = 1 + Math.floor(Math.random() * 4 - 1 + 1);
+            switch (randomNumber) {
+                case 1:
+                    key = 1
+                    orange++
+                    break;
+                case 2:
+                    key = 2
+                    apple++
+                    break;
+                case 3:
+                    key = 3
+                    lemon++
+                    break;
+                case 4:
+                    key = 4
+                    cherry++
+                    break;
+            }
+            document.write(`<div class="image" style="display: inline;"><img src="../img/lesson-5/${key}.png" alt="Fruit"></div>`)
+        }
+
+        if (orange === 3) {
+            win = `${100} грн!`
+            document.write(`Ваш приз ${win}`)
+        }
+        else if (apple === 3) {
+            win = `${200} грн!`
+            document.write(`Ваш приз ${win}`)
+        }
+        else if (lemon === 3) {
+            win = `${500} грн!`
+            document.write(`Ваш приз ${win}`)
+        }
+        else if (cherry === 3) {
+            win = `${1000} грн!`
+            document.write(`Ваш приз ${win}`)
+        }
+        else prize = 'Вы ничего не выиграли('
+        //3.Виводимо результа
+
+        document.write(`Ваш приз ${prize}`)
+    </script>
+</body>
+
+</html>

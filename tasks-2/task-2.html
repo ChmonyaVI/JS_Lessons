@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.</h1>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let year = parseInt(prompt('Веддите год рождения', '0'));
+
+        //2.Знаходимо результат
+        let today = new Date().getFullYear();
+        let result = today - year;
+
+        //3.Виводимо результа
+        document.write(`
+        Вам ${result} рокiв
+       `)
+    </script>
+</body>
+
+</html>

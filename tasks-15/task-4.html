@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <p>
+        Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+    </p>
+
+    <script>
+        class MultChecker {
+            constructor(checkNumber) {
+                this.checkNumber = checkNumber
+                this.answerCorrectCounter = 0
+                this.answerIncorrectCounter = 0
+            }
+            newTask() {
+                let randomNum = 1 + Math.floor(Math.random() * 10);
+                let answerCorrect = this.checkNumber * randomNum
+                let answerFromUser = parseInt(prompt(`${this.checkNumber} * ${randomNum}`))
+                return { answerFromUser, answerCorrect }
+            }
+            checkedAnswer() {
+                do {
+                    let { answerFromUser, answerCorrect } = this.newTask()
+                    if (answerFromUser === answerCorrect) this.answerCorrectCounter++
+                    else this.answerIncorrectCounter++
+                } while (confirm(`Продолжим ?`));
+            }
+            showMessage() {
+                document.write(`Число которое проверяем - ${this.checkNumber}<br>
+                Правильных ответов - ${this.answerCorrectCounter}</br>
+                Неправильных ответов - ${this.answerIncorrectCounter}
+                `)
+            }
+        }
+        let multChecker = new MultChecker(8)
+        multChecker.checkedAnswer()
+        multChecker.showMessage()
+
+    </script>
+</body>
+
+</html>

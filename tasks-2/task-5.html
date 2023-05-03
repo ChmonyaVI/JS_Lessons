@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task </h1>
+
+    <p>
+        Задача 5.Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        const currentDay = new Date();
+        const secondsFromDayStart = currentDay.getSeconds() + (currentDay.getMinutes() * 60) + (currentDay.getHours() * 60 * 60);
+
+        let curreтtHours;
+        let currentMinutes;
+        let minutesOfCurrentHour;
+
+        document.write(`От полуночи прошло ${secondsFromDayStart} секунд <br>`)
+        //2.Знаходимо результат
+        currentHours = Math.floor(secondsFromDayStart / 60 / 60);
+        currentMinutes = Math.floor(secondsFromDayStart / 60);
+        document.write(`Это составляет ${currentHours} часов <br>`)
+        document.write(`Это составляет ${currentMinutes} минут <br>`)
+
+        //3.Виводимо результа
+        minutesOfCurrentHour = currentMinutes - currentHours * 60;
+        document.write(`Время на данный момент: ${currentHours} часов ${minutesOfCurrentHour} минут`)
+    </script>
+</body>
+
+</html>

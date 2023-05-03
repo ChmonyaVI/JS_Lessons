@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 7</title>
+</head>
+
+<body>
+    <h1>Task 7</h1>
+
+    <br>
+    <p>
+        Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші
+        за 1000 грн. дати 30% знижки.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        //Сделаем функцию рандомных чисел
+        //2.Знаходимо результат
+        function randomPriceNumber(minNumber, maxNumber) {
+            return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+        }
+        const arrWithRandomPrice = new Array(5).fill(null).map((element) => (element = randomPriceNumber(500, 1500)))
+        document.write(`Сгенерированные рандомный цены = [${arrWithRandomPrice}]`)
+        arrWithRandomPrice.forEach((item,index,refArr) => {
+            if(item > 1000) Math.floor(arrWithRandomPrice[index]*=0.7);
+        });
+        document.write(`<br>Цены товара со скидкой: ${arrWithRandomPrice.join(', ')}`)
+        //2.Знаходимо результат
+  
+        //3.Виводимо результа
+    </script>
+</body>
+
+</html>

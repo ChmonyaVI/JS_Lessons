@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 4</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <p>
+        Задача 4. Розробити клас Baner
+    </p>
+
+    <script>
+        let Baner = {
+            graphArray: ['1', '2', '3'],
+            linkArray: ['rozetka.ua', 'google.com', 'yahoo.com'],
+            randomNumber() {
+                let minNumber = 0;
+                let maxNumber = this.linkArray.length - 1
+                let randomNum = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+                return randomNum
+            },
+            showLinkAndImage() {
+                let showLinkIndex = this.randomNumber(this.linkArray);
+                let showImageIndex = this.randomNumber(this.graphArray);
+                let showLink = this.linkArray[showImageIndex];
+                let showImage = this.graphArray[showImageIndex]
+                return document.write(`URL и картинкой</br></br><a href="${showLink}">${showLink}</a></br><img src="../tasks-15/image/${showImageIndex}.png" alt="NON">`)
+            },
+            showBaner() {
+                let showLinkIndex = this.randomNumber(this.linkArray);
+                let showImageIndex = this.randomNumber(this.graphArray);
+                let showLink = this.linkArray[showImageIndex];
+                let showImage = this.graphArray[showImageIndex]
+                document.write(`</br></br>Банер с URL</br></br><a href="${showLink}"><img src="../tasks-15/image/${showImageIndex}.png" alt="NON"></a>`)
+            }
+
+
+        }
+        let test = Baner.showLinkAndImage();
+        let test2 = Baner.showBaner();
+    </script>
+</body>
+
+</html>

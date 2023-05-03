@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 13</h1>
+
+    <br>
+    Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач
+    намагається потопити корабель.
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані  
+        const maxArea = parseInt(prompt('Задайте ширину игрового поля', '10'));
+        const minArea = 1;
+        let shoot = 1;
+        let misMessage = 'ВЫ промазали!';
+        //2.Знаходимо результат  
+        let ammo = Math.round(maxArea / 2.5);
+        ammo = ammo < 2 ? 2 : ammo;
+        alert(`У вас ${ammo} снарядов.`)
+        const randomShipLocation = minArea + Math.floor(Math.random() * (maxArea - minArea + 1));
+        console.log(randomShipLocation);
+        let userTryShoot = parseInt(prompt(`Попытак ${shoot}. Введите номер клетки для выстрела.`, '1'));
+        for (; shoot < ammo && userTryShoot !== randomShipLocation; shoot++) {
+            alert(misMessage);
+            userTryShoot = parseInt(prompt(`Попытак ${shoot}. Введите номер клетки для выстрела.`, '3'));
+        }
+
+
+        //3.Виводимо результа
+        if (userTryShoot == randomShipLocation) {
+            document.write(`Вы попали по кораблю, вы выиграли!`);
+        } else {
+            document.write(`Вы проиграл!`);
+        }
+
+    </script>
+</body>
+
+</html>

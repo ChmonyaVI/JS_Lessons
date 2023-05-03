@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <br>
+    Вивести таблицю з 3 рядків і 7 стовпців
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        const column = 7;
+        const row = 3;
+        // let userQuantity = parseInt(prompt('Введите количество списка случайных чисел', '0'));
+        //2.Знаходимо результат
+        document.write('<table border=2px>')
+        for (let i = 0; i < row; i++) {
+            document.write('<tr>')
+            for (let i = 0; i < column; i++) {
+                document.write(`<td>${i + 1}</td>`)
+            }
+        } document.write('</tr>')
+        document.write('</table>')
+
+        //3.Виводимо результа
+    </script>
+</body>
+
+</html>

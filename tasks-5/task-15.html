@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 15</h1>
+
+    <br>
+    Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані  
+        let resultTemperature = 0;
+        let tempMonth = 0;
+        let calcTeperatureMonth = 0
+        let monthNumber = 1;
+
+        //2.Знаходимо результат
+        for (let tempResult = 0; monthNumber <= 12; monthNumber++, calcTeperatureMonth++) {
+            resultTemperature = parseFloat(prompt(`Введите среднюю температуру за ${monthNumber} месяц`))
+            if (isNaN(resultTemperature)) break
+            tempResult += resultTemperature;
+            tempMonth = tempResult / monthNumber;
+        }
+        //3.Виводимо результа
+        alert(`Cередня темперетура за год составляет ${tempMonth} градусов.`)
+
+        /*
+        const messageTemperatureJan = parseFloat(prompt('Введите показания температуры за январь в °C:', '-1'));
+                const messageTemperatureFeb = parseFloat(prompt('Введите показания температуры за февраль в °C:', '-8'));
+                const messageTemperatureMarch = parseFloat(prompt('Введите показания температуры за март в °C:', '12'));
+                const messageTemperatureApril = parseFloat(prompt('Введите показания температуры за апрель в °C:', '15'));
+                const messageTemperatureMay = parseFloat(prompt('Введите показания температуры за май в °C:', '20'));
+                const messageTemperatureJune = parseFloat(prompt('Введите показания температуры за июнь в °C:', '30'));
+                const messageTemperatureJuly = parseFloat(prompt('Введите показания температуры за июль в °C:', '30'));
+                const messageTemperatureAugust = parseFloat(prompt('Введите показания температуры за август в °C:', '30'));
+                const messageTemperatureSep = parseFloat(prompt('Введите показания температуры за сентябрь в °C:', '22'));
+                const messageTemperatureOctober = parseFloat(prompt('Введите показания температуры за октябрь в °C:', '16'));
+                const messageTemperatureNovember = parseFloat(prompt('Введите показания температуры за ноябрь в °C:', '10'));
+                const messageTemperatureDecember = parseFloat(prompt('Введите показания температуры за декабрь в °C:', '2'));
+                
+                let calcWinter = (messageTemperatureJan + messageTemperatureFeb + messageTemperatureDecember) / 3;
+                let calcSpring = (messageTemperatureMarch + messageTemperatureApril + messageTemperatureMay) / 3;
+                let calSummer = (messageTemperatureJune + messageTemperatureJuly + messageTemperatureAugust) / 3;
+                let calcAutumn = (messageTemperatureSep + messageTemperatureOctober + messageTemperatureNovember) / 3;
+                let calcResult = Math.ceil(calcWinter + calcSpring + calSummer + calcAutumn) / 4;
+                alert(`Средняя температура за год состваляет ${calcResult}°C.`)*/
+    </script>
+</body>
+
+</html>

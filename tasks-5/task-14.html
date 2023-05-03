@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 14</h1>
+
+    <br>
+    Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір,
+    поки
+    суми не буде достатньо для оплати товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести).
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані  
+        let amountOfMoney = 10000;
+        let messageAboutSum = alert(`Сумма, которую нужно оплатить равна: ${amountOfMoney} гривень.`)
+        let recalculationOfTheBalance;
+        //let messageResidualAmount = alert(`Остаток суммы равняется `);
+        //2.Знаходимо результат  
+        let userPayment
+        for (let userPayment = 0; userPayment <= amountOfMoney;) {
+            userPayment = parseFloat(prompt('Введити сумму денег, которую вы хотите внести!', '0'));
+            //if (userPayment <= 0) { alert('Вы не можете внести отрицательную сумму!') }  
+            //else {  }
+            amountOfMoney -= userPayment;
+            if (amountOfMoney >= 0)
+                alert(`Вам необходимо внести ещё ${amountOfMoney}`)
+        }
+
+        //3.Виводимо результа
+        let amountOfMoney1 = Math.abs(amountOfMoney)
+        alert(`Вы внесли всю сумму, ваша сдача ${amountOfMoney1}`);
+
+    </script>
+</body>
+
+</html>

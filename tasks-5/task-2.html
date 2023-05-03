@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <br>
+    Створити 10 елементів для введення цін продуктів
+    <br>
+    <br>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let quantityElement = parseInt(prompt('Введите количество элементов для введения цен', '0'));
+        //2.Знаходимо результат
+        for (let i = 0; i < quantityElement; i++) {
+            document.write(`Product #${i + 1} <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="" class="input"></br>`)
+        }
+
+        //3.Виводимо результа
+
+    </script>
+</body>
+
+</html>

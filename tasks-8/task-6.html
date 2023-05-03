@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 6</h1>
+
+    <br>
+    <p>
+        Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті,
+        які може собі дозволити користувач (кількість грошей задається).
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let userMoney = parseFloat(prompt('Введите количество денег, которые у вас есть.', '1000'))
+        let priceItems = [1000, 20, 31]
+        let titlePrice = ['сыр', 'сок', 'хлеб']
+        //2.Знаходимо результат
+        function checkItems(money, listPrice, listItems) {
+            document.write('Список товаров которые вы можете купить:<br>')
+            let counter = 0;
+            let aproveMessage = ``;
+            let denideMessage;
+            for (let i = 0; i < listPrice.length; i++) {
+                100
+                if (listPrice[i] <= money) {
+                    aproveMessage += `Вы можете купить ${listItems[i]} за ${priceItems[i]} гривень.<br>`
+                    counter++;
+                }
+                else denideMessage = 'У вас недостаточно денег'
+            } return (counter > 0) ? aproveMessage : denideMessage;
+
+        }
+        let message = checkItems(userMoney, priceItems, titlePrice,);
+        //3.Виводимо результа
+        document.write(`${message}<br>`)
+
+    </script>
+</body>
+
+</html>

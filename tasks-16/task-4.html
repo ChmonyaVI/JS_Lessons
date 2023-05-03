@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <p>
+        Задача 4. Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля для
+        зберігання кількості
+        купюр кожного із номіналів від 5 до 200 гривень. Реалізувати методи знаходження максимальної та мінімальної сум,
+        які
+        може видати банкомат, та метод зняття деякої суми.
+
+    </p>
+
+    <script>
+        class TBankomat {
+            constructor() {
+                this.notes = {
+                    5: 10,
+                    10: 240,
+                    20: 135,
+                    50: 100,
+                    100: 50,
+                    200: 500,
+                    500: 30,
+                    1000: 5,
+                }
+            }
+            //метод возврата максимальной суммы выдачи денег
+            getMaxPayoutAmount() {
+                let totalMaxSum = 0;
+                for (let note in this.notes) {
+                    totalMaxSum += note * this.notes[note]
+                }
+                return totalMaxSum
+            }
+            //метод возврата минимальной суммы выдачи денег
+            getMinPayoutAmount() {
+                for (let note in this.notes) {
+                    if (this.notes[note] > 0) {
+                        return note;
+                    }
+                }
+                //закончились купюры
+                return null
+            }
+            //метод возврата определенную сумму выдачи денег
+            getCertainPayoutAmount(amount) {
+                if (amount > this.getMaxPayoutAmount()) return 'Не достаточно средств в банкомате для выдачи денег!'
+                let remainingAmount = amount
+                //Перебор купюр
+                let notesArray = Object.keys(this.notes).map(Number).sort((a, b) => b - a);
+
+                for (const note of notesArray) {
+                    let noteCount = Math.floor(remainingAmount / note);
+                    if (noteCount > this.notes[note]) {
+                        noteCount = this.notes[note];
+                    }
+                    remainingAmount -= noteCount * note;
+                    this.notes[note] -= noteCount;
+                }
+                if (remainingAmount > 0) {
+                    return "Недостаточно купюр для выдачи заданной суммы"
+                }
+                return 'Операция пройшла успешно.'
+            }
+        }
+        let bankomat = new TBankomat();
+        let test1 = bankomat.getMaxPayoutAmount()
+        console.log(test1);
+        let test2 = bankomat.getMinPayoutAmount()
+        console.log(test2);
+        let test3 = bankomat.getCertainPayoutAmount(15000)
+        console.log(test3);
+    </script>
+
+</body>
+
+</html>

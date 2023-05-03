@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 9</h1>
+
+    <br>
+    <p>
+        Морський бій. Користувач вводить кількість клітинок одновимірного масиву та
+        кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні кораблі у масиві
+        по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це означає, що там є
+        корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується до тих
+        пір, поки не будуть потоплені усі кораблі.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let usersNumberLenghtArr = parseInt(prompt('Введите число рядова на котором будут корабли', '5'))
+        let usersShipNumber = parseInt(prompt('Введите число кораблей', '2'))
+        let arrZonePlay = new Array(usersNumberLenghtArr);
+        console.log(arrZonePlay);
+        //2.Знаходимо результат
+        for (let i = 0; i < arrZonePlay.length; i++) {
+            arrZonePlay[i] = 0;
+
+        }
+        let countShip = 0;
+        do {
+            let randomNumber = Math.floor(Math.random() * usersNumberLenghtArr);
+            if (arrZonePlay[randomNumber] === 0) {
+                arrZonePlay[randomNumber] = 1;
+                countShip++
+            }
+        } while (countShip !== usersShipNumber);
+        console.log(arrZonePlay);
+
+        let removeShip = 0;
+        let shotUser = 1;
+        do {
+            let messageShootUser = parseInt(prompt(`Введите номер клеки для выстрела<br>Кораблей уничтожено ${removeShip}. выстрелов произведено ${shotUser}.`, '1'))
+            if (arrZonePlay[shotUser - 1] === 1) {
+                removeShip++;
+                countShip--;
+            }
+            shotUser++
+        } while (countShip !== 0);
+
+        //3.Виводимо результа
+        document.write(`
+        Вы уничтожили все корабли! Количество выстрелов: ${shotUser}.`)
+
+    </script>
+</body>
+
+</html>

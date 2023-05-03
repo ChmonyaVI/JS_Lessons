@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 8</title>
+</head>
+
+<body>
+    <h1>Task 8</h1>
+
+    <br>
+    <p>
+        Дано масив номерів авто. Сформувати новий масив тих, які починаються
+        на «А»
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let arrListAuto = ['AK9265AK', 'AB2245AK', 'HB9265DH', 'BH1262HH', 'AK9265AA']
+        //2.Знаходимо результат
+        const newArrayOfFirstLetter = arrListAuto.filter((item, index, arrRef) => item[0] === "A")
+        //2.Знаходимо результат
+        document.write(`Массив номеров машин ${arrListAuto};<br>Массив номеров атомобилей, согласно условию задания: ${newArrayOfFirstLetter}`)
+        console.log(newArrayOfFirstLetter);
+        //3.Виводимо результа
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <p>
+        Задача 3. З використанням замикань розробити ітератор, тобто функцію, що буде поступово за окремими викликами
+        видавати по одне
+        значення від заданого мінімального до заданого максимального. Якщо значення досягне максимального, то наступним
+        буде
+        мінімальне значення. З використанням цієї функції реалізувати перебір номерів місяців.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+
+        //2.Знаходимо результат
+        function externalFunction(initialValue, step) {
+            let somaVariable = initialValue
+            function innerFunction() {
+                somaVariable += step
+                if (somaVariable >= 13) {
+                    somaVariable = 1
+                }
+                return somaVariable
+            }
+            return innerFunction
+        }
+        let givenNumber = externalFunction(0, 1)
+        // function counter(value) {
+        //     function increment() {
+        //         return ++value
+        //     }
+        //     return increment
+        // }
+        // let cnt1 = counter(0)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+        document.write(`Месяц ${givenNumber()}<br>`)
+
+
+        //3.Виводимо результа
+
+    </script>
+</body>
+
+</html>

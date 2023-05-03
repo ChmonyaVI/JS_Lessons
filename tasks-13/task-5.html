@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <p>
+        Задача 5. Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і
+        робиться перевірка.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        function getRandomNum(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+        }
+        let cycleExample = setInterval(() => {
+            let firstNumber = getRandomNum(1, 10)
+            let secondNumber = getRandomNum(1, 10)
+            let sumResult = firstNumber + secondNumber
+            let questionForUser = parseInt(prompt(`Сколько будет ${firstNumber} + ${secondNumber} ?`))
+            if (sumResult !== questionForUser) {
+                alert('Не правильно')
+            }
+            else alert('Правильно')
+        },
+            5000
+        )
+        //2.Знаходимо результат
+
+        //document.write(`${test}`)
+        //3.Виводимо результа
+
+    </script>
+</body>
+
+</html>

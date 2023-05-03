@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <p>
+        Задача 2. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N
+        місяців.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let currentData = {
+            day: 25,
+            month: 03,
+            year: 2023,
+        }
+        let numberFromUser = parseInt(prompt('Введите число', '2'))
+        function getYear({ month, year }, numberFromUser) {
+            let sumMonth = month + numberFromUser
+            let newMonth = sumMonth % 12
+            let newYear = year + Math.floor((month + numberFromUser) / 12)
+            if (newMonth === 0) {
+                newMonth = 12
+                newYear -= 1
+            }
+            return newYear
+        }
+
+        console.log(getYear(currentData, numberFromUser));
+        //3.Виводимо результа
+
+    </script>
+</body>
+
+</html>

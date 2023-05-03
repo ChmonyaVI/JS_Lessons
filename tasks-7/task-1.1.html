@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <br>
+    <p>
+        Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        //let months;
+
+        //2.Знаходимо результат
+        let choosenDays = function (months) {
+            let result;
+            switch (months) {
+                case 1:
+                    result = "Понедельник - рабочий день."
+                    break;
+                case 2:
+                    result = "Вторник - рабочий день."
+                    break;
+                case 3:
+                    result = "Среда - рабочий день."
+                    break;
+                case 4:
+                    result = "Четверг - рабочий день."
+                    break;
+                case 5:
+                    result = "Пятница - рабочий день."
+                    break;
+                case 6:
+                    result = "Суббота - выходной день."
+                    break;
+                case 7:
+                    result = "Воскресенье - выходной день."
+                    break;
+                default:
+                    result = 'Error'
+                    break
+            }
+            return result
+        }
+        //3.Виводимо результа
+        const numberMonth = parseInt(prompt(`Введите номер дня недели.`));
+        let message = choosenDays(numberMonth);
+        document.write(`${message}`);
+
+    </script>
+</body>
+
+</html>

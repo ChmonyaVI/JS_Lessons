@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <h1>Task 5</h1>
+
+    <p>
+        Задача 5. Розробити клас «Керівник танців»
+    </p>
+
+    <script>
+
+
+        let headOfDance = {
+            boysListName: ['Dima', 'Pavel', 'Mike', 'Evgen', 'Pablo', 'Dallas',],
+            girlsListName: ['Natalya', 'Ekaterina', 'Marina', 'Kim', 'Alena', 'Olga',],
+
+            randomNameBoys: function () {
+                let maxNumber = this.boysListName.length - 1
+                let minNumber = 0;
+                let randomIndexBoy = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+                let randomName = this.boysListName[randomIndexBoy];
+                return randomName
+            },
+            randomNameGirls: function () {
+                let maxNumber = this.girlsListName.length - 1
+                let minNumber = 0;
+                let randomIndexGirls = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+                let randomName = this.girlsListName[randomIndexGirls];
+                return randomName
+            },
+            coupoleForDance: function () {
+                let boy = this.randomNameBoys();
+                let girl = this.randomNameGirls();
+                document.write(`Пара для танцев: ${boy} и ${girl}</br>`)
+                return
+            },
+            run() {
+                setInterval(() => this.coupoleForDance(), 5000)
+            }
+        }
+        let test = headOfDance.run()
+        document.write(test);
+
+    </script>
+</body>
+
+</html>

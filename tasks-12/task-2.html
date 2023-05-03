@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 2</title>
+</head>
+
+<body>
+    <h1>Task 2</h1>
+
+    <br>
+    <p>
+        Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування змішуванням.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        function getRandomNum(min, max) {
+            return min + Math.floor(Math.random() * (max - min + 1))
+        }
+
+        function getRandomArray(length, min, max) {
+            let array = []
+            for (let i = 0; i < length; i++) {
+                let randomNum = getRandomNum(min, max)
+                array.push(randomNum)
+            }
+            return array
+        }
+
+        let getNewArray = getRandomArray(30, 1, 99)
+        document.write(`Начальный массив:<br>${getNewArray}<br>`)
+        //2.Знаходимо результат
+        const swapElement = (array, i, j) => {
+            const akumulation = array[i]
+            array[i] = array[j]
+            array[j] = akumulation
+        }
+
+        function getChangedArray(array) {
+            let counter = 0;
+            let leftIndex = 0;
+            let rightIndex = getNewArray.length - 1
+            while (leftIndex < rightIndex) {
+                for (let index = leftIndex; index < rightIndex; index++) {
+                    if (array[index] > array[index + 1]) {
+                        swapElement(array, index, index + 1)
+                        counter++;
+                    }
+                    rightIndex--;
+                }
+                for (let index = rightIndex; index > leftIndex; index--) {
+                    if (array[index] < array[index + 1]) {
+                        swapElement(array, index, index + 1)
+                        counter++;
+                    }
+                    leftIndex++;
+                }
+            }
+            return counter
+        }
+        let changed = getChangedArray(getNewArray);
+        document.write(`Количество изменений: ${changed} раз.`)
+        //3.Виводимо результа
+
+    </script>
+</body>
+
+</html>

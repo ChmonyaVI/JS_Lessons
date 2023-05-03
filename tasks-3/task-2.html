@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 2 </h1>
+    <p>З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці,
+        інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</p>
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let product = parseFloat(prompt('Веддите цену товара', '0'));
+        let money = parseFloat(prompt('Веддите количество имеющих денег', '0'));
+        const ticket = 4;
+
+        //2.Знаходимо результат
+        let result1 = product - money;
+        let result2 = money - product;
+        if (product > money)
+            document.write(`Недостаточно денег для покупки товара! Вам не хватает ${result} грн.`)
+        else (money >= product && result2 < ticket)
+        document.write(`У вас достаточно количества денег для покупки товара! Вы можете купить лотерейный билет!`)
+        //3.Виводимо результа
+        document.write(`
+             `)
+    </script>
+</body>
+
+</html>

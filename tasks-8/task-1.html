@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 1</h1>
+
+    <br>
+    <p>
+        Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати
+        до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку),
+        хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+
+        //2.Знаходимо результат
+        let numberOfLessons = parseInt(prompt('Введите количество предметов', '1'))
+        let arrGrade = [];
+        let info = ''
+        let grades = function (numberOfLessons) {
+            for (let i = 0; i < numberOfLessons; i++) {
+                let gradeQuestion = parseInt(prompt('Введите оценку', '4'))
+                arrGrade.push(gradeQuestion);
+            } return arrGrade;
+        }
+        let arrGradefyll = grades(numberOfLessons);
+        let resultMidlGrade = function (arrGradefyll) {
+            let sum = 0;
+            for (let j = 0; j < arrGradefyll.length; j++) {
+                sum += arrGradefyll[j]
+            }
+            return sum
+        }
+        console.log(info);
+
+        //Определяем категорию студента
+        function categoryStudent(arr) {
+            let massage;
+            for (let i = 1; i <= 1; i++) {
+                if (arr[i] < 2) {
+                    massage = 'двойшником'
+                }
+                else if (arr[i] <= 3) {
+                    massage = 'тройшником'
+                }
+                else if (arr[i] <= 4) {
+                    massage = 'хорошистом'
+                }
+                else massage = 'отличником'
+            }
+
+            return massage
+        }
+        let messageCategory = categoryStudent(arrGrade);
+        let resutl = resultMidlGrade(arrGradefyll)
+        let midl = resutl / numberOfLessons
+        //3.Виводимо результа
+        document.write(`Всего предметов ${numberOfLessons} штук, средняя оценка составляет ${midl} и ученик является ${messageCategory}.`)
+
+    </script>
+</body>
+
+</html>

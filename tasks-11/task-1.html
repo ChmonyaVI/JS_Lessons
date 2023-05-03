@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 1</title>
+</head>
+
+<body>
+    <h1>Task 1. Знайти суми елементів у вказаній області</h1>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let array = [[2, 2, 5, 5], [2, 2, 5, 5], [3, 3, 4, 4], [3, 3, 4, 4]]
+        let firstSum = 0
+        let secondSum = 0;
+        let thirdSum = 0;
+        let fourSum = 0;
+
+        //2.Знаходимо результат
+        //========================================================================================================================================================
+        // Сумма второго квадранта
+        console.log(array);
+        for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+            for (let columnIndex = 0; columnIndex <= 1; columnIndex++) {
+                firstSum += array[rowIndex][columnIndex]
+            }
+        }
+        document.write(`Сумма второго квадранта равняется: ${firstSum}.<br>`)
+        //========================================================================================================================================================
+        //Первого квадранта
+        for (let rowIndex = 0; rowIndex <= 1; rowIndex++) {
+            for (let columnIndex = 2; columnIndex <= 3; columnIndex++) {
+                secondSum += array[rowIndex][columnIndex]
+            }
+        }
+        document.write(`Сумма первого квадранта равняется: ${secondSum}.<br>`)
+        //========================================================================================================================================================
+        //Третьего квадранта
+        for (let rowIndex = 2; rowIndex <= 3; rowIndex++) {
+            for (let columnIndex = 0; columnIndex <= 1; columnIndex++) {
+                thirdSum += array[rowIndex][columnIndex]
+            }
+        }
+        document.write(`Сумма третьего квадранта равняется: ${thirdSum}.<br>`)
+        //========================================================================================================================================================
+        //Четвертого квадранта
+        for (let rowIndex = 2; rowIndex <= 3; rowIndex++) {
+            for (let columnIndex = 2; columnIndex <= 3; columnIndex++) {
+                fourSum += array[rowIndex][columnIndex]
+            }
+        }
+        document.write(`Сумма четвертого квадранта равняется: ${fourSum}.<br>`)
+        //3.Виводимо результа
+        //========================================================================================================================================================
+        let rowZeroSum = 0
+        let rowTwoSum = 0;
+        for (let rowIndex = 0; rowIndex <= 0; rowIndex++) {
+            for (let columnIndex = 0; columnIndex <= 3; columnIndex++) {
+                rowZeroSum += array[rowIndex][columnIndex]
+            }
+
+        }
+        for (let rowIndex = 2; rowIndex <= 2; rowIndex++) {
+            for (let columnIndex = 0; columnIndex <= 3; columnIndex++) {
+                rowTwoSum += array[rowIndex][columnIndex]
+            }
+
+        }
+        let sumEvenElement = rowZeroSum + rowTwoSum;
+        document.write(`<br>5) Сумма четных рядов равняется: ${sumEvenElement}.<br>`)
+        //========================================================================================================================================================
+        let columnOneSum = 0;
+        let columnThreeSum = 0;
+        for (let rowIndex = 0; rowIndex <= 3; rowIndex++) {
+            for (let columnIndex = 1; columnIndex <= 1; columnIndex++) {
+                columnOneSum += array[rowIndex][columnIndex]
+            }
+        }
+        for (let rowIndex = 0; rowIndex <= 3; rowIndex++) {
+            for (let columnIndex = 3; columnIndex <= 3; columnIndex++) {
+                columnThreeSum += array[rowIndex][columnIndex]
+            }
+        }
+        let sumOddElement = columnOneSum + columnThreeSum;
+        document.write(`6) Сумма нечетных равняется: ${sumOddElement}.<br>`)
+        //========================================================================================================================================================
+        //У парних рядках – непарні стовпці, у непарних – парні.
+    </script>
+</body>
+
+</html>

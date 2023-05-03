@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 8</h1>
+    <br>
+    <p>
+        Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість від’ємних
+        показів
+        температури.
+
+    </p>
+    <script>
+        //1.Вводимо необхідні дані
+        let temperature;
+        let firstTemperature = parseFloat(prompt('Введите первую температуру:', '-10'));
+        let secondTemperature = parseFloat(prompt('Введите вторую температуру:', '15'));
+        let thirdTemperature = parseFloat(prompt('Введите тертью температуру:', '-23'));
+        let fourTemperature = parseFloat(prompt('Введите четвертую температуру:', '-2'));
+        //2.Знаходимо результат
+        let temperatureFunction = function (firstTemperature, secondTemperature, thirdTemperature, fourTemperature) {
+            let counter = 0;
+            if (firstTemperature < 0)
+                counter++;
+            if (secondTemperature < 0)
+                counter++;
+            if (thirdTemperature < 0)
+                counter++;
+            if (fourTemperature < 0)
+                counter++;
+            return counter;
+        }
+        //3.Виводимо результа
+        const message = temperatureFunction(firstTemperature, secondTemperature, thirdTemperature, fourTemperature)
+        document.write(`Количество введенных отрицательных температу составляет ${message} шт.`)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <br>
+    Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        const minNumber = 1;
+        const maxNumber = 5;
+        let randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1));
+        console.log(randomNumber);
+        let firstChance = parseInt(prompt('Угадайте случайное число от 1 до 5', '0'));
+        if (randomNumber === firstChance) {
+            document.write(`
+             Вы угадали с первой попытки!`)
+
+        } else {
+            let secondChance = parseInt(prompt('Попробуйте ещё раз', '0'));
+            if (randomNumber === secondChance) {
+                document.write(`
+             Вы угадали со второй попытки!`)
+            } else {
+                document.write(`
+             Вы угадали! Число было ${randomNumber}`)
+            }
+        }
+
+
+        //2.Знаходимо результат
+
+
+        //3.Виводимо результа
+        document.write(`
+             `)
+    </script>
+</body>
+
+</html>

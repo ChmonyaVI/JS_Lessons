@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 5</title>
+</head>
+
+<body>
+    <h1>Task 4</h1>
+
+    <br>
+    <p>
+        Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів: кількість парних, кількість
+        додатних, кількість більших за 100.
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let fisrtVariable = parseFloat(prompt("Введите первую переменную", '1'));
+        let secondVariable = parseFloat(prompt("Введите вторую переменную", '2'));
+        let thirdVariable = parseFloat(prompt("Введите третью переменную", '3'));
+        const inch = 0.9370;
+        const pound = 2.20462;
+        const mile = 0.621371;
+
+        //2.Знаходимо результат
+        let conversionToInch = function (fisrtVariable) {
+            let result1 = fisrtVariable * inch;
+            return `${fisrtVariable} сантиметр(ов) равняется ${result1} дюймов.<br>`;
+        };
+        let conversionToPound = function (secondVariable) {
+            let result2 = secondVariable * pound;
+            return `${fisrtVariable} килограмм(ов) равняется ${result2} фунтов.<br>`;
+        };
+        let conversionToMile = function (thirdVariable) {
+            let result3 = secondVariable * mile;
+            return `${thirdVariable} километр(ов) равняется ${result3} миль.<br>`;
+        };
+
+        //3.Виводимо результа
+        let messageFirst = conversionToInch(fisrtVariable);
+        document.write(`${messageFirst}`);
+        let messageSecond = conversionToPound(secondVariable);
+        document.write(`${messageSecond}`)
+        let messageThird = conversionToMile(thirdVariable);
+        document.write(`${messageThird}`)
+
+
+    </script>
+</body>
+
+</html>

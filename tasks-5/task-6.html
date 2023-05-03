@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 6</h1>
+
+    <br>
+    Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+    <br>
+    <img src="../img/lesson-5/6.png" style="width: 300px;" alt="6">
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let number = 1;
+        //2.Знаходимо результат
+
+        for (let k = 0; k < 3; k++) {
+            document.write('<table border=2px; style=float:left;')
+
+            for (let i = 1; i <= 3; i++) {
+                document.write('<tr>')
+                for (let j = 1; j <= 3; j++) {
+                    document.write(`<td>${number}</td>`)
+                    number++;
+                } document.write('</tr>')
+            } document.write('</table>')
+        }
+
+
+        //3.Виводимо результа
+    </script>
+</body>
+
+</html>

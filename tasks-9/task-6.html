@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 6</title>
+</head>
+
+<body>
+    <h1>Task 6</h1>
+
+    <br>
+    <p>
+        Дано масив елементів. Усі елементи, які більші за перший елемент
+        помножити на 2
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        //Сделаем функцию рандомных чисел
+        //2.Знаходимо результат
+        function randomNumber(minNumber, maxNumber) {
+            return Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber;
+        }
+        const arrWithRandomNumber = new Array(5).fill(null).map((element) => (element = randomNumber(1, 100)))
+        document.write(`Сгенерированные рандомный элемент массивов = [${arrWithRandomNumber}]`)
+        const firstElementArray = arrWithRandomNumber.at(0);
+        arrWithRandomNumber.forEach((item,index,refArr) => {
+            if(item > firstElementArray) arrWithRandomNumber[index]*=2
+        });
+        document.write(`<br>Результат без перемножения первого элемента массива: ${arrWithRandomNumber.join(', ')}`)
+        //2.Знаходимо результат
+  
+        //3.Виводимо результа
+    </script>
+</body>
+
+</html>

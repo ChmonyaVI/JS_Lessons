@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 8</title>
+</head>
+
+<body>
+    <h1>Task 7</h1>
+
+    <br>
+    <p>
+        Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей<br>
+        за:<br>
+        1) за весь рік;<br>
+        2) у першій половині року;<br>
+        3) у другій половині року;<br>
+        4) за літо;<br>
+        5) за ІІ квартал;<br>
+        6) за парні місяці (з парними номерами);<br>
+        7) за місяці, які є початковими у сезоні (весна, літо, осінь, зима).<br>
+    </p>
+
+    <script>
+        //1.Вводимо необхідні дані
+        let arrForYear = [1000, 800, 750, 1100, 1300, 700, 585, 670, 900, 1010, 550, 950]
+        //2.Знаходимо результат
+
+        //1) Находим сумму за год
+        function totalSumYear(arr) {
+            let totalSum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                totalSum += arr[i];
+            } return totalSum
+        }
+        let messageTotalSum = totalSumYear(arrForYear);
+        //2) Находим сумму за первый год
+        function firstHalfSum(arr) {
+            totalSumHalfYear = 0;
+            for (let i = 0; i <= 5; i++) {
+                totalSumHalfYear += arr[i]
+            } return totalSumHalfYear
+        }
+        let messageTotalSumFirstHalfYear = firstHalfSum(arrForYear);
+        //3) Находим сумма за вторую половину года
+        function secondHalfSum(arr) {
+            totalSumHalfYear = 0;
+            for (let i = 6; i <= 11; i++) {
+                totalSumHalfYear += arr[i]
+            } return totalSumHalfYear
+        }
+        let messageTotalSumSecondHalfYear = secondHalfSum(arrForYear);
+        //4) Находим сумма за лето
+        function summerSum(arr) {
+            totalSumSummer = 0;
+            for (let i = 5; i <= 7; i++) {
+                totalSumSummer += arr[i]
+            } return totalSumSummer
+        }
+        let messageTotalSumSummer = summerSum(arrForYear);
+        //5) За 2й квартал
+        function secondQuarterSum(arr) {
+            totalSumSecondQuarter = 0;
+            for (let i = 3; i <= 5; i++) {
+                totalSumSecondQuarter += arr[i]
+            } return totalSumSecondQuarter
+        }
+        let messageTotalSumSecondQuarter = secondQuarterSum(arrForYear);
+        //5) За четные месяцы (с четными номерами)
+        function doubleMonthSum(arr) {
+            totalSumDoubleMonth = 0;
+            for (let i = 0; i <= 11; i++) {
+                if (i % 2 == 0)
+                    totalSumDoubleMonth += arr[i]
+                else continue
+            } return totalSumDoubleMonth
+        }
+        let messageTotalSumsDoubleMonth = doubleMonthSum(arrForYear);
+        //6) За месяцы, начальные в сезоне (весна, лето, осень, зима).
+        function doubleMonthSumSeasons(arr) {
+            totalSumSeasons = 0;
+            for (let i = 1; i <= 1; i++) {
+                totalSumSeasons += arr[2];
+                console.log(totalSumSeasons);
+                totalSumSeasons += arr[5];
+                console.log(totalSumSeasons);
+                totalSumSeasons += arr[8];
+                console.log(totalSumSeasons);
+                totalSumSeasons += arr[11];
+                console.log(totalSumSeasons);
+            } return totalSumDoubleMonth
+        }
+        let messageTotalSumSeasons = doubleMonthSumSeasons(arrForYear);
+
+        //3.Виводимо результа
+        document.write(`Сумма за год: ${messageTotalSum} гривень.<br>`)
+        document.write(`Сумма за первые пол года: ${messageTotalSumFirstHalfYear} гривень.<br>`)
+        document.write(`Сумма за вторые пол года: ${messageTotalSumSecondHalfYear} гривень.<br>`)
+        document.write(`Сумма за лето: ${messageTotalSumSummer} гривень.<br>`)
+        document.write(`Сумма за 2й квартал: ${messageTotalSumSecondQuarter} гривень.<br>`)
+        document.write(`Сумма за четные месяцы: ${messageTotalSumsDoubleMonth} гривень.<br>`)
+        document.write(`Сумма за месяцы, начальные в сезоне (весна, лето, осень, зима): ${messageTotalSumSeasons} гривень.<br>`)
+    </script>
+</body>
+
+</html>

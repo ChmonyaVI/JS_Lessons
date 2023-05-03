@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Lesson 2</title>
+</head>
+
+<body>
+    <h1>Task 6</h1>
+
+    <br>
+    З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+    <br>
+    <br>
+    <script>
+        //1.Вводимо необхідні дані
+        let numberWeek = parseInt(prompt('Веддите номер дня недели', '0'));
+        let answer;
+        //2.Знаходимо результат
+        switch (numberWeek) {
+            case 1: answer = "Понедельник"
+                break;
+            case 2: answer = "Вторник"
+                break;
+            case 3: answer = "Среда"
+                break;
+            case 4: answer = "Четверг"
+                break;
+            case 5: answer = "Пятница"
+                break;
+            case 6: answer = "Суббота"
+                break;
+            case 7: answer = "Воскресенье"
+                break;
+            default:
+                answer = "Нужно ввести число от 1 до 7."
+                break;
+        }
+
+
+        //3.Виводимо результа
+        document.write(`${answer}`)
+    </script>
+</body>
+
+</html>

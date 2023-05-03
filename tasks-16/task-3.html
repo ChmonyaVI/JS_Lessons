@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Налаштування поведінки в'юпорта -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h1>Task 3</h1>
+
+    <p>
+        Задача 3. Об’єкт “Фірма” (використати члени-класи)
+
+    </p>
+
+    <script>
+        class Services {
+            #price
+            constructor(name, price, deadline) {
+                this.name = name
+                this.Price = price
+                this.deadline = deadline
+            }
+            get Price() {
+                return this.#price
+            }
+            set Price(value) {
+                if (value < 0) throw new Error('invalid value')
+                this.#price = value
+            }
+            toString() {
+                return `Услуга: ${this.name} <br> Цена услуги: ${this.price}грн <br> Сроки исполнения: ${this.deadline} дней <br>`
+            }
+        }
+        class BranchAddresses {
+            constructor(country, city, str, houseNumber) {
+                this.country = country
+                this.city = city
+                this.str = str
+                this.houseNumber = houseNumber
+            }
+            toString() {
+                return `Адресс филиала: Страна: ${this.country}, город: ${this.city}, улица: ${this.str}, номер: ${this.houseNumber}<br>`
+            }
+        }
+        class Company {
+            constructor(companyName, foundationYear, foundationMonth) {
+                this.companyName = companyName
+                this.foundationDate = {
+                    foundationYear: foundationYear,
+                    foundationMonth: foundationMonth
+                }
+                this.services = [
+                    new Services('Service 1', 5000, 25),
+                    new Services('Service 2', 4500, 15),
+                    new Services('Service 3', 4000, 17)
+                ]
+                this.branchAddresses = [
+                    new BranchAddresses('Ukraine', 'Kyiv', 1, 10),
+                    new BranchAddresses('Ukraine', 'Simferopol', 2, 11),
+                    new BranchAddresses('Ukraine', 'Evpatoriya', 3, 12)
+                ]
+            }
+            getNumberOfYearsOfExistence() {
+                let currentYear = new Date().getFullYear()
+                //можно было передавать текущий год как параметр функции но я не знаю как лучше поэтому получил год внутри
+                return currentYear - this.foundationDate.foundationYear
+            }
+            getBranchInSpecifiedCity(desiredCity) {
+                for (const branchAddress of this.branchAddresses) {
+                    if (branchAddress.city === desiredCity) document.write(branchAddress)
+                }
+            }
+            getAvailableServices(money, terms) {
+                for (const service of this.services) {
+                    if (service.cost <= money && service.deadline <= terms) document.write(service)
+                }
+            }
+            toString() {
+                return `
+					Компания: ${this.companyName}<br>
+					Дата основания: ${this.foundationDate.foundationMonth}.${this.foundationDate.foundationYear}<br>
+					Услуги: ${this.services}<br>
+					${this.branchAddresses}
+				`
+            }
+        }
+        let company = new Company('Company Name', 2023, 02)
+        document.write(company)
+    </script>
+
+</body>
+
+</html>
